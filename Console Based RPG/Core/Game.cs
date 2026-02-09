@@ -72,7 +72,7 @@ namespace Console_Based_RPG.Core
 
                     case 3:
                         Console.Clear();
-
+                        StatsUI.PlayerStatsUI(player);
                         break;
                 }
             }

@@ -63,6 +63,7 @@
     <Compile Include="UI\InventoryUI.cs" />
     <Compile Include="UI\StartingMenu.cs" />
     <Compile Include="UI\StartingGearUI.cs" />
+    <Compile Include="UI\StatsUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

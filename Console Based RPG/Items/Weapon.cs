@@ -10,7 +10,7 @@ namespace Console_Based_RPG.Items
     {
         public int DamageBonus { get; }
 
-        public Weapon(string name, int damageBonus) : base(name, "Weapon")
+        public Weapon(string name, int damageBonus) : base(name, "Weapon", false)
         {
             DamageBonus = damageBonus;   
         }

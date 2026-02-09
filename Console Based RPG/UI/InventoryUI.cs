@@ -21,10 +21,11 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("-----------------");
             Console.WriteLine("");
             Console.WriteLine("1.Show Item Info");
-            Console.WriteLine("2.Remove Item");
+            Console.WriteLine("2.Equip Item");
+            Console.WriteLine("3.Remove Item");
             Console.WriteLine("0: Go Back");
 
-            return StartingMenu.GetValidData(0, 2);
+            return StartingMenu.GetValidData(0, 3);
         }
         public static void InventoryNavigator(Player player)
         {
@@ -38,6 +39,11 @@ namespace Console_Based_RPG.UI
                     break;
 
                 case 2:
+                    Console.Clear();
+                    EquipItemUI(player);
+                    break;
+
+                case 3:
                     Console.Clear();
                     InventoryUI.RemoveItemUI(player);
                     break;
@@ -53,7 +59,7 @@ namespace Console_Based_RPG.UI
             Console.Clear();
             player.Inventory.ShowInventory();
             Console.WriteLine("Select which item you want to remove.");
-            Console.WriteLine("Press 0 to go cancel");
+            Console.WriteLine("Press 0 to go cancel.");
 
 
             if (player.Inventory.Items.Count == 0)
@@ -70,10 +76,33 @@ namespace Console_Based_RPG.UI
 
 
             Item item = player.Inventory.Items[choice - 1];
-            player.Inventory.RemoveItemsFromInventory(item);
+            player.Inventory.RemoveItemsFromInventory(item, player);
             InventoryNavigator(player);
         }
 
+        public static void EquipItemUI(Player player)
+        {
+            Console.Clear();
+            player.Inventory.ShowInventory();
+            Console.WriteLine("Select the item you want to equip.");
+            Console.WriteLine("Press 0 to go cancel.");
+            if (player.Inventory.Items.Count == 0)
+            {
+                Console.ReadKey();
+                return;
+            }
+
+            int choice = Inventory.SelectItem(player);
+
+            if (choice == 0)
+            {
+                return;
+            }
+
+            Item item = player.Inventory.Items[choice - 1];
+            player.EquipItem(item);
+            InventoryNavigator(player);
+        }
  
 
         

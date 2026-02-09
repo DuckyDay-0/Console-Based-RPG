@@ -23,8 +23,12 @@ namespace Console_Based_RPG.Core
             items.Add(item);
         }
 
-        public void RemoveItemsFromInventory(Item item)
-        { 
+        public void RemoveItemsFromInventory(Item item, Player player)
+        {
+            if (item.isEquipped == true)
+            { 
+                player.UnequipItem(item);
+            }
             items.Remove(item);
         }
 
@@ -35,6 +39,7 @@ namespace Console_Based_RPG.Core
 
         public void ShowInventory()
         {
+            Console.Clear();
             if (items.Count == 0)
             {
                 Console.WriteLine("Inventory is Empty");
@@ -42,7 +47,16 @@ namespace Console_Based_RPG.Core
             }
             for (int i = 0; i < items.Count; i++)
             {
-                Console.WriteLine($"{i + 1}: {items[i].Name}");
+                string equippedString;
+                if (items[i].isEquipped == true)
+                {
+                    equippedString = ": Already Equipped";
+                }
+                else 
+                {
+                    equippedString = "";
+                }
+                    Console.WriteLine($"{i + 1}: {items[i].Name} {equippedString}");
             }
 
         }

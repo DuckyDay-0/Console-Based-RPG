@@ -10,7 +10,7 @@ namespace Console_Based_RPG.Items
     {
         public int ArmorBonus { get; }
         public Armor(string name, int armorBonus) 
-            : base(name, "Armor")
+            : base(name, "Armor", false)
         {
             ArmorBonus = armorBonus;
         }

@@ -19,6 +19,7 @@ namespace Console_Based_RPG.Characters
 
         private int baseStrenght;
         private int bonusStrenght;
+
         public int Health
         { 
             get { return baseHealth; }
@@ -40,6 +41,8 @@ namespace Console_Based_RPG.Characters
         {
             get { return baseStrenght + bonusStrenght; }
         }
+
+
         public Character(int health, int armor, int damage, int strenght) 
         {
             baseHealth = health;
@@ -50,13 +53,24 @@ namespace Console_Based_RPG.Characters
         }
 
         public void EquipArmor(int armorBonus)
-        { 
+        {
             bonusArmor += armorBonus;
         }
 
         public void EquipWeapon(int weaponBonus)
         {
             bonusDamage += weaponBonus;
+        }
+
+
+        public void UnequipArmor(int armorBonus)
+        { 
+            bonusArmor -= armorBonus;
+        }
+
+        public void UnequipWeapon(int weaponBonus)
+        {
+            bonusDamage -= weaponBonus;
         }
 
         public void ConsumePotion(int potionBonus)
