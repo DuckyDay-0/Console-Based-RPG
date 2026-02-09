@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Console_Based_RPG.Characters;
+using Console_Based_RPG.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,32 @@ namespace Console_Based_RPG.UI
 {
     internal class ExploreUI
     {
+
+        public static void ExploreNavigator(Player player)
+        {
+            int choice = ExploreUI.PlacesToExplore();
+
+            switch (choice)
+            {
+                case 1:
+                    Console.Clear();
+                    Explore.HandleBlackForestExplore(player);
+                    break;
+
+                case 2:
+                    Console.Clear();
+                    ExploreUI.Swamp();
+                    break;
+
+                case 3:
+                    Console.Clear();
+                    ExploreUI.Plains();
+                    break;
+            }
+
+
+        }
+
         public static int PlacesToExplore()
         {
             Console.WriteLine("----Places to Explore----");
@@ -45,5 +73,7 @@ namespace Console_Based_RPG.UI
         { 
          // to do 
         }
+
+       
     }
 }

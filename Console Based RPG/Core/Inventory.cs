@@ -1,4 +1,6 @@
-﻿using Console_Based_RPG.Items;
+﻿using Console_Based_RPG.Characters;
+using Console_Based_RPG.Items;
+using Console_Based_RPG.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,11 @@ namespace Console_Based_RPG.Core
             items.Remove(item);
         }
 
+        public static int SelectItem(Player player)
+        {
+            return StartingMenu.GetValidData(0, player.Inventory.Items.Count);
+        }
+
         public void ShowInventory()
         {
             if (items.Count == 0)
@@ -33,7 +40,6 @@ namespace Console_Based_RPG.Core
                 Console.WriteLine("Inventory is Empty");
                 return;
             }
-
             for (int i = 0; i < items.Count; i++)
             {
                 Console.WriteLine($"{i + 1}: {items[i].Name}");

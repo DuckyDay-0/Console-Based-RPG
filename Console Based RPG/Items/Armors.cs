@@ -13,7 +13,10 @@ namespace Console_Based_RPG.Items
             {
                 {"iron armor", new Armor("Iron Armor", 50)},
                 {"lether armor", new Armor("Lether Armor", 20)},
-                {"enchanted armor", new Armor("Enchanted Armor", 70)}
+                {"enchanted armor", new Armor("Enchanted Armor", 70)},
+                {"troll hide armor", new Armor("Troll Hide Armor", 30)}
             };
+
+
     }
 }

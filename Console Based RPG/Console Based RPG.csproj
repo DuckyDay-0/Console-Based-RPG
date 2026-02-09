@@ -51,6 +51,8 @@
     <Compile Include="Items\Armor.cs" />
     <Compile Include="Items\Armors.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\Material.cs" />
+    <Compile Include="Items\Materials.cs" />
     <Compile Include="Items\StartingGear.cs" />
     <Compile Include="Items\Weapon.cs" />
     <Compile Include="Items\Weapons.cs" />

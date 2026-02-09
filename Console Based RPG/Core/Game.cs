@@ -4,6 +4,7 @@ using Console_Based_RPG.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,8 @@ namespace Console_Based_RPG.Core
     internal class Game
     {
         private Player player = new Player("Hero");
+
+
         public void Run()
         {
             MainMenuNavigator();
@@ -50,26 +53,33 @@ namespace Console_Based_RPG.Core
         }
 
         private void GameLoopNavigator()
-        { 
-            int choice = GameLoopUI.GameLoopNavigator();
-            InventoryUI inventoryUI = new InventoryUI();
-            switch (choice)
-            { 
-                case 1:
-                    //Explore
-                    break;
+        {
+            while (true)
+            {
+                Console.Clear();
+                int choice = GameLoopUI.GameLoopNavigator();
+                switch (choice)
+                {
+                    case 1:
+                        Console.Clear();
+                        ExploreUI.ExploreNavigator(player);
+                        break;
 
-                case 2:
-                    Console.Clear();
-                    inventoryUI.InventoryNavigator(player);
-                    break;
+                    case 2:
+                        Console.Clear();
+                        InventoryUI.InventoryNavigator(player);
+                        break;
 
-                case 3:
-                    Console.Clear();
-                    
-                    break;
+                    case 3:
+                        Console.Clear();
+
+                        break;
+                }
             }
-           
         }
+       
+
+        
+
     }
 }

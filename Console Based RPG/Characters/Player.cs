@@ -14,7 +14,7 @@ namespace Console_Based_RPG.Characters
         public Inventory Inventory { get; } = new Inventory();          
 
         public Player(string name)
-            : base(100, 2, 5) { }
+            : base(100, 2, 5, 100) { }
 
         public void AddMultipleItems(List<Item> items)
         {
