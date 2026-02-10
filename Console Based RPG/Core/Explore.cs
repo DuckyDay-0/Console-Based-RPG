@@ -15,18 +15,21 @@ namespace Console_Based_RPG.Core
         public static void HandleBlackForestExplore(Player player)
         {
 
-            int? choice = ExploreUI.BlackForest();
+            int choice = ExploreUI.BlackForest();
             
             switch (choice)
             {
                 case 1:
                     Item surtlingCore = Materials.materials["surtling core"];
-                    player.AddOneItem(surtlingCore);
+                    FarmingSystem.Farm(player,surtlingCore);
                     break;
 
                 case 2:
                     Item trollArmor = Armors.armors["troll hide armor"];
                     player.AddOneItem(trollArmor);
+                    break;
+
+                case 0:
                     break;
             }
         }

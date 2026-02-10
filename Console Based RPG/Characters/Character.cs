@@ -73,10 +73,21 @@ namespace Console_Based_RPG.Characters
             bonusDamage -= weaponBonus;
         }
 
-        public void ConsumePotion(int potionBonus)
+        public void TakePotion(int potionBonus)
         {
             potionBonus += bonusStrenght;
         }
+
+        public bool ConsumeStrenght(int strenghtCost)
+        {
+            if (baseStrenght < strenghtCost)
+            {
+                return false;
+            }
+            baseStrenght -= strenghtCost;
+            return true;
+        }
+
         //To do
         //Heal
         //Take Damage

@@ -31,7 +31,7 @@ namespace Console_Based_RPG.Characters
 
         public void EquipItem(Item item)
         {
-            foreach (var invItem in Inventory.Items)
+            foreach (var invItem in Inventory.Items.ToList())
             {
                 if (invItem.isEquipped && invItem.GetType() == item.GetType())
                 { 

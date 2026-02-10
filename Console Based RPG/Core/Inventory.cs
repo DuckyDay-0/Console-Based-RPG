@@ -19,7 +19,20 @@ namespace Console_Based_RPG.Core
         }
 
         public void AddItemToInventory(Item item)
-        { 
+        {
+            if (item is Material newMaterial)
+            {
+                var existing = items
+                    .OfType<Material>()
+                    .FirstOrDefault(m => m.Name == newMaterial.Name);
+
+                if (existing != null)
+                {
+                    existing.AddQuantity(newMaterial.Quantity);
+                    return;
+                }
+            }
+
             items.Add(item);
         }
 
@@ -56,7 +69,18 @@ namespace Console_Based_RPG.Core
                 {
                     equippedString = "";
                 }
+
+                int stackedMaterial;
+                if (items[i] is Material material)
+                {
+                    stackedMaterial = material.Quantity;
+                    Console.WriteLine($"{i + 1}: {items[i].Name} : {stackedMaterial}");
+
+                }
+                else
+                {
                     Console.WriteLine($"{i + 1}: {items[i].Name} {equippedString}");
+                }
             }
 
         }
