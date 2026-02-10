@@ -11,11 +11,13 @@ namespace Console_Based_RPG.Items
     {
         public string Name { get; }
         public string Description { get; }
+        public bool isEquipped { get; set; } 
 
-        public Item(string name, string descripton)
+        public Item(string name, string descripton, bool isEqipped)
         { 
             Name = name;
             Description = descripton;
+            isEquipped = isEqipped;
         }
     }
 }

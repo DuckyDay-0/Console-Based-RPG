@@ -17,6 +17,8 @@ namespace Console_Based_RPG.Characters
         private int baseDamage;
         private int bonusDamage;
 
+        private int baseStrenght;
+        private int bonusStrenght;
 
         public int Health
         { 
@@ -33,18 +35,25 @@ namespace Console_Based_RPG.Characters
         public int TotalDamage
         { 
             get { return baseDamage + bonusDamage; } 
+        }      
+
+        public int TotalStrenght
+        {
+            get { return baseStrenght + bonusStrenght; }
         }
 
-        public Character(int health, int armor, int damage) 
+
+        public Character(int health, int armor, int damage, int strenght) 
         {
             baseHealth = health;
             currentHealth = health;
             baseArmor = armor;
-            baseDamage = damage;
+            baseDamage = damage;     
+            baseStrenght = strenght;
         }
 
         public void EquipArmor(int armorBonus)
-        { 
+        {
             bonusArmor += armorBonus;
         }
 
@@ -52,6 +61,33 @@ namespace Console_Based_RPG.Characters
         {
             bonusDamage += weaponBonus;
         }
+
+
+        public void UnequipArmor(int armorBonus)
+        { 
+            bonusArmor -= armorBonus;
+        }
+
+        public void UnequipWeapon(int weaponBonus)
+        {
+            bonusDamage -= weaponBonus;
+        }
+
+        public void TakePotion(int potionBonus)
+        {
+            potionBonus += bonusStrenght;
+        }
+
+        public bool ConsumeStrenght(int strenghtCost)
+        {
+            if (baseStrenght < strenghtCost)
+            {
+                return false;
+            }
+            baseStrenght -= strenghtCost;
+            return true;
+        }
+
         //To do
         //Heal
         //Take Damage
@@ -60,6 +96,7 @@ namespace Console_Based_RPG.Characters
             Console.WriteLine($"Health: {CurrentHealth}/{Health}");
             Console.WriteLine($"Armor: {TotalArmor}");
             Console.WriteLine($"Damage: {TotalDamage}");
+            Console.WriteLine($"Strenght: {TotalStrenght}");
         }
         
     }

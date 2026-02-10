@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Console_Based_RPG.Items
+{
+    internal class Materials
+    {
+        public static Dictionary<string, Material> materials = new Dictionary<string, Material>
+        {
+            {"surtling core", new Material("Surtling Core", "Material")},
+            {"pine wood", new Material("Pine Wood", "Material")},
+            {"copper", new Material("Copper", "Material")},
+            {"ancient bark", new Material("Ancient Bark", "Material")},
+            {"mudy scrap", new Material("Mudy Scrap", "Material")},
+            {"turnip seeds", new Material("Turnip Seeds", "Material")},
+        };
+    }
+}

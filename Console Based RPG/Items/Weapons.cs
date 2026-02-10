@@ -8,7 +8,7 @@ namespace Console_Based_RPG.Items
 {
     internal class Weapons
     {
-        private static Dictionary<string, Weapon> weapons = 
+        public static Dictionary<string, Weapon> weapons = 
             new Dictionary<string, Weapon>
             {
                 {"sword", new Weapon("Iron Sword", 10)},
