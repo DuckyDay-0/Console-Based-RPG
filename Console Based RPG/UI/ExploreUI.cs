@@ -56,8 +56,8 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("----Black Forest----");
             Console.WriteLine("1.Explore Burial Chambers(+Surtling Core, -Strenght)");
             Console.WriteLine("2.Hunt Trolls(+Troll Hide Armor, ->Get Into Combat)");
-            Console.WriteLine("3.Harvest Pine Trees(+Pine Wood)");
-            Console.WriteLine("4.Mine Copper(+Copper)");
+            Console.WriteLine("3.Harvest Pine Trees(+Pine Wood, -Strenght)");
+            Console.WriteLine("4.Mine Copper(+Copper, -Strenght)");
             Console.WriteLine("0.Exit");
 
 

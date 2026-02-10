@@ -20,7 +20,7 @@ namespace Console_Based_RPG.Core
             switch (choice)
             {
                 case 1:
-                    Item surtlingCore = Materials.materials["surtling core"];
+                    Material surtlingCore = Materials.materials["surtling core"];
                     FarmingSystem.Farm(player,surtlingCore);
                     break;
 
@@ -29,10 +29,21 @@ namespace Console_Based_RPG.Core
                     player.AddOneItem(trollArmor);
                     break;
 
+                case 3:
+                    Material pineWood = Materials.materials["pine wood"];
+                    FarmingSystem.Farm(player, pineWood);
+                    break;
+
+                case 4:
+                    Material copper = Materials.materials["copper"];
+                    FarmingSystem.Farm(player, copper);
+                    break;
                 case 0:
                     break;
             }
         }
+
+
 
     }
 }

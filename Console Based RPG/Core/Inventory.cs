@@ -4,6 +4,7 @@ using Console_Based_RPG.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,12 +39,28 @@ namespace Console_Based_RPG.Core
 
         public void RemoveItemsFromInventory(Item item, Player player)
         {
+            if (item is Material material)
+            {
+                if (material.Quantity > 1)
+                {
+                    Console.WriteLine("How much of the item do you want to remove?");
+                    int amount = StartingMenu.GetValidData(1, material.Quantity);
+
+                    material.RemoveQuantity(amount);
+
+                    if (material.Quantity > 0)
+                    { 
+                        return;
+                    }
+                }
+            }
+
             if (item.isEquipped == true)
             { 
                 player.UnequipItem(item);
             }
             items.Remove(item);
-        }
+        }    
 
         public static int SelectItem(Player player)
         {
