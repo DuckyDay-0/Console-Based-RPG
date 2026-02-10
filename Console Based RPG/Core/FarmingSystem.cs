@@ -13,7 +13,7 @@ namespace Console_Based_RPG.Core
     {
         private static Random random = new Random();
 
-        public static void Farm(Player player, Item material)
+        public static void Farm(Player player, Material material)
         {
             Console.Clear();
             int strenghtCost = random.Next(5, 17);
@@ -36,7 +36,15 @@ namespace Console_Based_RPG.Core
                 Console.ReadKey();
                 return;
             }
-            player.AddOneItem(material);
+
+            Material farmedMaterial = new Material
+            (
+                material.Name,
+                material.Description,
+                amount
+            );
+
+            player.AddOneItem(farmedMaterial);
             string rndMaterialMsg = MessageHelper.MsgRand(GameMessages.FarmingMaterialSuccessful);
             Console.WriteLine($"{rndMaterialMsg}\n{amount} {material.Name} has been added to your inventory.");
             Console.WriteLine("Press any button to continue.");
