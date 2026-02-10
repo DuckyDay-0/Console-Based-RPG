@@ -39,7 +39,14 @@ namespace Console_Based_RPG.Characters
                 }
             }
 
-            if (item is Armor armor)
+            if (item is Material material)
+            {
+                Console.Clear();
+                Console.WriteLine("You can't equip this item! \nPress any button to continue.");
+                Console.ReadKey();
+                return;
+            }
+            else if (item is Armor armor)
             {
                 EquipArmor(armor.ArmorBonus);
                 armor.isEquipped = true;

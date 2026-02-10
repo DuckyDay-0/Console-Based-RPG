@@ -16,12 +16,15 @@ namespace Console_Based_RPG.Core
         public static void Farm(Player player, Material material)
         {
             Console.Clear();
-            int strenghtCost = random.Next(5, 17);
+            int strenghtCost = random.Next(90, 100);
 
             if (player.TotalStrenght < strenghtCost)
             {
-                MessageHelper.MsgRand(GameMessages.NotEnoughStrenghtMsgs);
+                string rndNotEnoughStrenghtMsg = MessageHelper.MsgRand(GameMessages.NotEnoughStrenghtMsgs);
+                Console.WriteLine(rndNotEnoughStrenghtMsg);
+                Console.WriteLine("Click any button to continue.");
                 Console.ReadKey();
+                return;
             }
 
             player.ConsumeStrenght(strenghtCost);

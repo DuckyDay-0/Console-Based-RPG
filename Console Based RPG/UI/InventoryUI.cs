@@ -86,6 +86,7 @@ namespace Console_Based_RPG.UI
             player.Inventory.ShowInventory();
             Console.WriteLine("Select the item you want to equip.");
             Console.WriteLine("Press 0 to go cancel.");
+
             if (player.Inventory.Items.Count == 0)
             {
                 Console.ReadKey();

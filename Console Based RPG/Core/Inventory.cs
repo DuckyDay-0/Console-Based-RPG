@@ -43,7 +43,8 @@ namespace Console_Based_RPG.Core
             {
                 if (material.Quantity > 1)
                 {
-                    Console.WriteLine("How much of the item do you want to remove?");
+                    Console.Clear();
+                    Console.WriteLine($"How much of the item do you want to remove?\nCurrent {item.Name} Quantity: {material.Quantity}");
                     int amount = StartingMenu.GetValidData(1, material.Quantity);
 
                     material.RemoveQuantity(amount);
