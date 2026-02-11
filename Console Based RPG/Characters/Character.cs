@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Console_Based_RPG.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +62,7 @@ namespace Console_Based_RPG.Characters
         {
             bonusDamage += weaponBonus;
         }
-
+         
 
         public void UnequipArmor(int armorBonus)
         { 
@@ -78,19 +79,34 @@ namespace Console_Based_RPG.Characters
             strenghtBonus += bonusStrenght;
         }
 
+
         public bool ReduceStrenght(int strenghtCost)
         {
             if (baseStrenght < strenghtCost)
             {
+                currentHealth -= strenghtCost;
                 return false;
             }
             baseStrenght -= strenghtCost;
             return true;
         }
 
+        public bool ReduceHealth(int healthCost)
+        {
+            if (currentHealth <= 0)
+            {
+                return false;
+            }
+            currentHealth -= healthCost;
+            return true;
+        }
+
+        public void IncreaseHealth(int healthBonus)
+        {
+            currentHealth += healthBonus;
+        }
+
         //To do
-        //Heal
-        //Take Damage
         public void ShowCharacterStats()
         {
             Console.WriteLine($"Health: {CurrentHealth}/{Health}");

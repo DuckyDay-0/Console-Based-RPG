@@ -20,7 +20,7 @@ namespace Console_Based_RPG.Core
             switch (choice)
             {
                 case 1:
-                    Material surtlingCore = Materials.materials["surtling core"];
+                    Material surtlingCore = Materials.materials["sturling core"];
                     FarmingSystem.Farm(player,surtlingCore);
                     break;
 

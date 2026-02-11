@@ -58,6 +58,15 @@ namespace Console_Based_RPG.Characters
                 weapon.isEquipped = true;
                 Console.WriteLine($"{weapon.Name} eqipped.");
             }
+            else if (item is HealthPotion healthPotion)
+            {
+                Console.Clear();
+                IncreaseHealth(healthPotion.PotionHealthBonus);
+                healthPotion.RemoveQuantity(1);
+                Console.WriteLine($"{healthPotion.Name} used.\nCurrent Health: {CurrentHealth}");
+                Console.WriteLine("Click any button to continue.");
+                Console.ReadKey();
+            }
             else
             {
                 Console.WriteLine("Item could not be equipped!");
@@ -81,6 +90,6 @@ namespace Console_Based_RPG.Characters
             }
 
             item.isEquipped = false;
-        }
+        } 
     }
 }

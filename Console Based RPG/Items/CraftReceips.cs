@@ -41,8 +41,41 @@ namespace Console_Based_RPG.Items
             () => new Material("Ancient Alloy Plate", "Craftable Material", 1),
             new Dictionary<string, int>
             {
-                {"Pine Wood", 8},
-                {"Copper", 10}
+                {"Pine Wood", 1}
+                //{"Copper", 10}
+            }
+        );
+
+        public static CraftReceip LightHealthPotion = new CraftReceip
+        (
+            "Light Health Potion",
+            () => new HealthPotion("Light Health Potion", 15, 1),
+            new Dictionary<string, int>
+            {               
+                {"Sturling Core", 1}
+                //{"Copper", 2}
+            }
+        );
+
+        public static CraftReceip MidHealthPotion = new CraftReceip
+        (
+            "Mid Health Potion",
+            () => new Material("Mid Health Potion", "Craftable Item", 1),
+            new Dictionary<string, int>
+            {
+                {"Sturling Core", 1}
+                //{"Copper", 4}
+            }
+        );
+
+        public static CraftReceip HighHealthPotion = new CraftReceip
+        (
+            "High Health Potion",
+            () => new Material("High Health Potion", "Craftable Item", 1),
+            new Dictionary<string, int>
+            {
+               {"Sturling Core", 1}
+               //{"Copper", 8}
             }
         );
     }

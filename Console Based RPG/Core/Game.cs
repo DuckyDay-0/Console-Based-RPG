@@ -77,9 +77,11 @@ namespace Console_Based_RPG.Core
                 }
             }
         }
-       
 
-        
+        public void Die()
+        { 
+            //To do
+        }
 
     }
 }

@@ -54,6 +54,8 @@
     <Compile Include="Items\Armor.cs" />
     <Compile Include="Items\Armors.cs" />
     <Compile Include="Items\CraftReceips.cs" />
+    <Compile Include="Items\HealthPotion.cs" />
+    <Compile Include="Items\HealthPotions.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\Material.cs" />
     <Compile Include="Items\Materials.cs" />
