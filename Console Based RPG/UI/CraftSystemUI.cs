@@ -19,10 +19,13 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("2.Living Vine Core <- Sturling Core(9) + Copper(10) + Ancient Alloy Plate(1)");
             Console.WriteLine("|__Can be used to create Charged Swamp Core");
             Console.WriteLine();
-            Console.WriteLine("3.Charged Swamp Core <- Sturling Core(5) + Copper(8) + Living Vine Core(1)");
+            Console.WriteLine("3.Charged Swamp Core <- Sturling Core(5) + Copper(8) + Living Vine Core(1) + Ancient Alloy Plate(1)");
             Console.WriteLine("|__Can be used to unlock the Swamp biom");
-
-            return StartingMenu.GetValidData(0, 2);
+            Console.WriteLine();
+            Console.WriteLine("0. Exit");
+            return StartingMenu.GetValidData(0, 3);
         }
+
+
     }
 }

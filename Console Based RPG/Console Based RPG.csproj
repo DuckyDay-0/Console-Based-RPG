@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\Player.cs" />
+    <Compile Include="Core\CraftReceip.cs" />
     <Compile Include="Core\CraftSystem.cs" />
     <Compile Include="Core\Explore.cs" />
     <Compile Include="Core\FarmingSystem.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Core\Inventory.cs" />
     <Compile Include="Items\Armor.cs" />
     <Compile Include="Items\Armors.cs" />
+    <Compile Include="Items\CraftReceips.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\Material.cs" />
     <Compile Include="Items\Materials.cs" />

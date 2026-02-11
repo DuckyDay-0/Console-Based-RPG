@@ -61,7 +61,25 @@ namespace Console_Based_RPG.Core
                 player.UnequipItem(item);
             }
             items.Remove(item);
-        }    
+        }
+        public bool HasMaterial(string name, int amount)
+        { 
+            var material = items.OfType<Material>().FirstOrDefault(m => m.Name == name);
+
+            return material != null && amount > 0;
+
+        }
+
+        public void RemoveMaterial(string name, int amount)
+        {
+            var material = items.OfType<Material>().FirstOrDefault(m => m.Name == name);
+            material.RemoveQuantity(amount);
+
+            if (material.Quantity < 1)
+            { 
+                items.Remove(material);
+            }
+        }
 
         public static int SelectItem(Player player)
         {

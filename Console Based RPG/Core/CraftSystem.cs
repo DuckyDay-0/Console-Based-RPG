@@ -12,20 +12,55 @@ namespace Console_Based_RPG.Core
     internal class CraftSystem
     {
 
-        public void Craft(Player player, Materials material)
+        public static void Craft(Player player, int choice)
         {
             Console.Clear();
-            int choice = CraftSystemUI.HandleCraftSystemUI();
+            CraftReceip craftReceip = null;
+
 
             switch (choice)
             {
                 case 1:
-                    foreach (var invItem in player.Inventory.Items.ToList())
-                    {
-                       // To Do
-                    }
+                    craftReceip = CraftReceips.AncientAlloyPlate;
+                    break;
+
+                case 2:
+                    craftReceip = CraftReceips.LivingVineCore;
+                    break;
+
+                case 3:
+                    craftReceip = CraftReceips.ChargedSwampCore;
+                    break;
+
+                case 0:
+
                     break;
             }
+
+            if (craftReceip == null)
+            {
+                return;
+            }
+
+            foreach (var req in craftReceip.RequiredItems)
+            {
+                if (!player.Inventory.HasMaterial(req.Key, req.Value))
+                {
+                    Console.WriteLine("You don't have the required materials\nPress any button to continue.");
+                    Console.ReadKey();
+                    return;
+                }
+            }
+
+            foreach (var req in craftReceip.RequiredItems)
+            { 
+                player.Inventory.RemoveMaterial(req.Key, req.Value);
+            }
+
+            player.AddOneItem(craftReceip.CreateMethod());
+
+            Console.WriteLine($"{craftReceip.ItemToBeCrafted} created successfuly!");
+            Console.ReadKey();
         }
 
     }
