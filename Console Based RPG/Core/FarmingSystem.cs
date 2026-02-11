@@ -16,7 +16,7 @@ namespace Console_Based_RPG.Core
         public static void Farm(Player player, Material material)
         {
             Console.Clear();
-            int strenghtCost = random.Next(90, 100);
+            int strenghtCost = random.Next(5, 20);
 
             if (player.TotalStrenght < strenghtCost)
             {
@@ -27,7 +27,7 @@ namespace Console_Based_RPG.Core
                 return;
             }
 
-            player.ConsumeStrenght(strenghtCost);
+            player.ReduceStrenght(strenghtCost);
             string rndMsg = MessageHelper.MsgRand(GameMessages.EnoughStenghtMsgs);
             Console.WriteLine($"{rndMsg}\nYou've lost {strenghtCost} of your strenght.");
 

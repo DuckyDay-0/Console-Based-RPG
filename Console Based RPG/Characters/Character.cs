@@ -73,12 +73,12 @@ namespace Console_Based_RPG.Characters
             bonusDamage -= weaponBonus;
         }
 
-        public void TakePotion(int potionBonus)
+        public void IncreaseStrenght(int strenghtBonus)
         {
-            potionBonus += bonusStrenght;
+            strenghtBonus += bonusStrenght;
         }
 
-        public bool ConsumeStrenght(int strenghtCost)
+        public bool ReduceStrenght(int strenghtCost)
         {
             if (baseStrenght < strenghtCost)
             {

@@ -22,15 +22,16 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("");
             Console.WriteLine("1.Show Item Info");
             Console.WriteLine("2.Equip Item");
-            Console.WriteLine("3.Remove Item");
+            Console.WriteLine("3.Crafting Table");
+            Console.WriteLine("4.Remove Item");
             Console.WriteLine("0: Go Back");
 
-            return StartingMenu.GetValidData(0, 3);
+            return StartingMenu.GetValidData(0, 4);
         }
         public static void InventoryNavigator(Player player)
         {
 
-            int choice = InventoryUI.InventoryNavigatorUI(player);
+            int choice = InventoryNavigatorUI(player);
             switch (choice)
             {
                 case 1:
@@ -45,9 +46,14 @@ namespace Console_Based_RPG.UI
 
                 case 3:
                     Console.Clear();
-                    InventoryUI.RemoveItemUI(player);
+                    //CraftSystemUI.HandleCraftSystemUI();
+                    CraftSystem.Craft(player, CraftSystemUI.HandleCraftSystemUI());
                     break;
 
+                case 4:
+                    Console.Clear();
+                    RemoveItemUI(player);
+                    break;
                 case 0:
                     break;
             }
