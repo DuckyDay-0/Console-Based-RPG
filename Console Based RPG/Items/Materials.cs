@@ -10,7 +10,7 @@ namespace Console_Based_RPG.Items
     {
         public static Dictionary<string, Material> materials = new Dictionary<string, Material>
         {
-            {"surtling core", new Material("Surtling Core", "Material")},
+            {"sturling core", new Material("Sturling Core", "Material")},
             {"pine wood", new Material("Pine Wood", "Material")},
             {"copper", new Material("Copper", "Material")},
             {"ancient bark", new Material("Ancient Bark", "Material")},

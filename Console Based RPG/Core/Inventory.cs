@@ -33,6 +33,19 @@ namespace Console_Based_RPG.Core
                     return;
                 }
             }
+            else if (item is HealthPotion newHealthPotion)
+            {
+                var existing = items
+                    .OfType<HealthPotion>()
+                    .FirstOrDefault(m => m.Name == newHealthPotion.Name);
+
+                if (existing != null)
+                {
+                    existing.AddQuantity(newHealthPotion.Quantity);
+                    return;
+                }
+            }
+
 
             items.Add(item);
         }
@@ -62,11 +75,12 @@ namespace Console_Based_RPG.Core
             }
             items.Remove(item);
         }
+
         public bool HasMaterial(string name, int amount)
         { 
             var material = items.OfType<Material>().FirstOrDefault(m => m.Name == name);
 
-            return material != null && amount > 0;
+            return material != null && material.Quantity >= amount;
 
         }
 
@@ -79,7 +93,7 @@ namespace Console_Based_RPG.Core
             { 
                 items.Remove(material);
             }
-        }
+        }       
 
         public static int SelectItem(Player player)
         {
@@ -107,11 +121,25 @@ namespace Console_Based_RPG.Core
                 }
 
                 int stackedMaterial;
+
                 if (items[i] is Material material)
                 {
                     stackedMaterial = material.Quantity;
                     Console.WriteLine($"{i + 1}: {items[i].Name} : {stackedMaterial}");
 
+                }
+                else if (items[i] is HealthPotion healthPotion)
+                {
+                    if (healthPotion.Quantity < 1)
+                    {
+                        var invHealthPotion = items.OfType<HealthPotion>().FirstOrDefault(n => n.Name == items[i].Name);
+                        items.Remove(invHealthPotion);
+                    }
+                    else
+                    {
+                        stackedMaterial = healthPotion.Quantity;
+                        Console.WriteLine($"{i + 1}: {items[i].Name} : {stackedMaterial}");
+                    }
                 }
                 else
                 {

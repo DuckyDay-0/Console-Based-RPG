@@ -32,6 +32,18 @@ namespace Console_Based_RPG.Core
                     craftReceip = CraftReceips.ChargedSwampCore;
                     break;
 
+                case 4:
+                    craftReceip = CraftReceips.LightHealthPotion;
+                    break;
+
+                case 5:
+                    craftReceip = CraftReceips.MidHealthPotion;
+                    break;
+
+                case 6:
+                    craftReceip = CraftReceips.HighHealthPotion;
+                    break;
+
                 case 0:
 
                     break;

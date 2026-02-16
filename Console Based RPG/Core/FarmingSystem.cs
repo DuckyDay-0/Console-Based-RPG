@@ -16,12 +16,14 @@ namespace Console_Based_RPG.Core
         public static void Farm(Player player, Material material)
         {
             Console.Clear();
-            int strenghtCost = random.Next(5, 20);
+            int strenghtCost = random.Next(50, 90);
 
             if (player.TotalStrenght < strenghtCost)
             {
                 string rndNotEnoughStrenghtMsg = MessageHelper.MsgRand(GameMessages.NotEnoughStrenghtMsgs);
                 Console.WriteLine(rndNotEnoughStrenghtMsg);
+                player.ReduceHealth(strenghtCost / 2);
+                Console.WriteLine($"Since you had no energy {strenghtCost / 2} was taken from your health.");
                 Console.WriteLine("Click any button to continue.");
                 Console.ReadKey();
                 return;

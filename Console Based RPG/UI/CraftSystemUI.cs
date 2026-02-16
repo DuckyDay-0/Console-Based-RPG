@@ -22,8 +22,16 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("3.Charged Swamp Core <- Sturling Core(5) + Copper(8) + Living Vine Core(1) + Ancient Alloy Plate(1)");
             Console.WriteLine("|__Can be used to unlock the Swamp biom");
             Console.WriteLine();
+            Console.WriteLine("4.Light Health Potion <- Sturling Core(2) + Copper(2)");
+            Console.WriteLine("|__Can be used to increase your Health by 15");
+            Console.WriteLine();
+            Console.WriteLine("5.Mid Potion <- Sturling Core(4) + Copper(4)");
+            Console.WriteLine("|__Can be used to increase your Health by 30");
+            Console.WriteLine();
+            Console.WriteLine("6.Health Potion <- Sturling Core(8) + Copper(8)");
+            Console.WriteLine("|__Can be used to increase your Health by 60");
             Console.WriteLine("0. Exit");
-            return StartingMenu.GetValidData(0, 3);
+            return StartingMenu.GetValidData(0, 6);
         }
 
 
