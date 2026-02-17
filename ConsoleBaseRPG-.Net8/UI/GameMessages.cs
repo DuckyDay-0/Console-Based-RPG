@@ -32,5 +32,22 @@ namespace Console_Based_RPG.UI
             "Use it wisely...",
             "Hope it was worth the hassle..."
         };
+
+        public static List<string> PlayerInBattleMsgs = new List<string>
+        {
+            "As the creature tries to doge, you manege to hit it right in the chest!",
+            "As you doge an attack, the creature trips and falls!",
+            "You draw your sword and stab the creature right into the leg!",
+            "You throw a rock at the creature while it's not looking...",
+            "Next time try harder and it might die..."
+        };
+
+        public static List<string> EnemyInBattleMsgs = new List<string>
+        {
+            "As you try to run away the creature catches you and throws in right into a wall!",
+            "As you try to stab the creature, it doges and kicks you right back!",
+            "The creature managed to get to you in time, before you draw your sword again!",
+            "As you try to doge, the creature predicts your move and you get slapped right into the face!"
+        };
     }
 }

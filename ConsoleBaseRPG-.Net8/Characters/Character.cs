@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Console_Based_RPG.Characters
 {
-    internal class Character
+    public class Character
     {
         private int baseHealth;
         private int currentHealth;
@@ -76,7 +76,7 @@ namespace Console_Based_RPG.Characters
 
         public void IncreaseStrenght(int strenghtBonus)
         {
-            strenghtBonus += bonusStrenght;
+            bonusStrenght += strenghtBonus;
         }
 
 

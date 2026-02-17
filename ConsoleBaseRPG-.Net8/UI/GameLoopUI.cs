@@ -16,8 +16,9 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("2.Inventory");
             Console.WriteLine("3.Stats");
             Console.WriteLine("4.Exit");
+            Console.WriteLine("TEst");
 
-            return StartingMenu.GetValidData(1, 4);
+            return StartingMenu.GetValidData(1, 5);
         }
     }
 }

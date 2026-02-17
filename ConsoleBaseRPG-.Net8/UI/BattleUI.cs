@@ -1,0 +1,54 @@
+﻿using Console_Based_RPG.Characters;
+using Console_Based_RPG.Items;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Console_Based_RPG.UI
+{
+    internal class BattleUI
+    {
+        public static void ShowBattleStatsUI(Player player, Enemy enemy)
+        {
+            Console.WriteLine($"Your Current Health and Equipped Items : {player.CurrentHealth}");
+            Console.WriteLine($"To do");
+            Console.WriteLine($"Enemy Current Health: {enemy.CurrentHealth}");
+        }
+
+        public static void UsePotionUI(Player player)
+        {
+            Console.Clear();
+            Console.WriteLine($"Your Health so far: {player.CurrentHealth}.");
+            Console.WriteLine();
+
+            var potions = player.Inventory.Items
+                .OfType<HealthPotion>()
+                .Where(p => p.Quantity > 0)
+                .ToList();
+
+            if (potions.Count > 0)
+            {
+                Console.WriteLine("Choose which potion to use.");
+
+                for (int i = 0; i < potions.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {potions[i].Name} : {potions[i].Quantity}");
+                }
+
+                int choice = StartingMenu.GetValidData(0, potions.Count);
+
+                Item potion = potions[choice - 1];
+                player.EquipItem(potion);
+            }
+            else
+            {
+                Console.WriteLine("You have no potions left!\n Press any key to exit!");
+                Console.ReadKey();
+                return;
+            }
+            Console.ReadKey();
+        }
+    }
+}
