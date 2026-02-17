@@ -14,12 +14,10 @@ namespace Console_Based_RPG.Core
     {
         private Player player = new Player("Hero");
 
-
         public void Run()
         {
             MainMenuNavigator();
             GameLoopNavigator();
-
         }
         private void MainMenuNavigator()
         {
@@ -73,6 +71,10 @@ namespace Console_Based_RPG.Core
                     case 3:
                         Console.Clear();
                         StatsUI.PlayerStatsUI(player);
+                        break;
+
+                    case 4:
+                        BattleUI.UsePotionUI(player);
                         break;
                 }
             }

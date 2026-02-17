@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Enemy.cs" />
     <Compile Include="Characters\Player.cs" />
+    <Compile Include="Core\BattleSystem.cs" />
     <Compile Include="Core\CraftReceip.cs" />
     <Compile Include="Core\CraftSystem.cs" />
+    <Compile Include="Core\EnemyFactory.cs" />
     <Compile Include="Core\Explore.cs" />
     <Compile Include="Core\FarmingSystem.cs" />
     <Compile Include="Core\Game.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="Items\Weapons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\BattleUI.cs" />
     <Compile Include="UI\CraftSystemUI.cs" />
     <Compile Include="UI\ExploreUI.cs" />
     <Compile Include="UI\GameLoopUI.cs" />
