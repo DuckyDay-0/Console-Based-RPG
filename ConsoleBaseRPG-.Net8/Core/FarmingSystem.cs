@@ -16,7 +16,7 @@ namespace Console_Based_RPG.Core
         public static void Farm(Player player, Material material)
         {
             Console.Clear();
-            int strenghtCost = random.Next(50, 90);
+            int strenghtCost = random.Next(5, 20);
 
             if (player.TotalStrenght < strenghtCost)
             {

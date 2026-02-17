@@ -28,7 +28,6 @@ namespace Console_Based_RPG.Core
                 }
                 turn = !turn;
             }
-
         }
 
         public static void EnemyTurn(Player player, Enemy enemy)
@@ -69,12 +68,14 @@ namespace Console_Based_RPG.Core
             }
             if (attacker is Enemy)
             {
+                Console.WriteLine(MessageHelper.MsgRand(GameMessages.EnemyInBattleMsgs));
                 Console.WriteLine($"{damage} was dealth by the enemy!\nPress any button to continue.");
                 Console.ReadKey();
             }
             else 
             {
-                Console.WriteLine($"{damage} was dealt!\n Press any key to continue.");
+                Console.WriteLine(MessageHelper.MsgRand(GameMessages.PlayerInBattleMsgs));
+                Console.WriteLine($"{damage} was dealt to the enemy!\n Press any key to continue.");
                 Console.ReadKey();
             }
                 defender.ReduceHealth(damage);

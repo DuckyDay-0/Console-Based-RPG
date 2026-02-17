@@ -41,8 +41,8 @@ namespace Console_Based_RPG.Items
             () => new Material("Ancient Alloy Plate", "Craftable Material", 1),
             new Dictionary<string, int>
             {
-                {"Pine Wood", 1}
-                //{"Copper", 10}
+                {"Pine Wood", 8},
+                {"Troll Hide Armor", 10}
             }
         );
 
@@ -52,8 +52,8 @@ namespace Console_Based_RPG.Items
             () => new HealthPotion("Light Health Potion", 15, 1),
             new Dictionary<string, int>
             {               
-                {"Sturling Core", 1}
-                //{"Copper", 2}
+                {"Sturling Core", 2},
+                {"Copper", 2}
             }
         );
 
@@ -63,8 +63,8 @@ namespace Console_Based_RPG.Items
             () => new Material("Mid Health Potion", "Craftable Item", 1),
             new Dictionary<string, int>
             {
-                {"Sturling Core", 1}
-                //{"Copper", 4}
+                {"Sturling Core", 4},
+                {"Copper", 4}
             }
         );
 
@@ -74,8 +74,8 @@ namespace Console_Based_RPG.Items
             () => new Material("High Health Potion", "Craftable Item", 1),
             new Dictionary<string, int>
             {
-               {"Sturling Core", 1}
-               //{"Copper", 8}
+               {"Sturling Core", 8},
+               {"Copper", 8}
             }
         );
     }
