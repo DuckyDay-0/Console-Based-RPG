@@ -42,7 +42,7 @@ namespace Console_Based_RPG.Items
             new Dictionary<string, int>
             {
                 {"Pine Wood", 8},
-                {"Troll Hide Armor", 10}
+                {"Troll Hide Armor", 4}
             }
         );
 

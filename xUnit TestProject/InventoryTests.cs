@@ -27,15 +27,15 @@ namespace xUnit_TestProject
         }
 
         [Fact]
-        public void RemoveMaterial_ShouldDecreaseQuantity()
+        public void RemoveItem_ShouldDecreaseQuantity()
         {
             Player player = new Player("Test Player");
 
-            Material wood = new Material("Wood", "material", 4);
+            Material wood = new Material("Pine Wood", "material", 4);
 
             player.AddOneItem(wood);
 
-            player.Inventory.RemoveMaterial("Wood", 2);
+            player.Inventory.RemoveItem("Pine Wood", 2);
 
             var material = player.Inventory.Items.OfType<Material>().First();
 

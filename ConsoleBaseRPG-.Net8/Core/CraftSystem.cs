@@ -12,11 +12,10 @@ namespace Console_Based_RPG.Core
     internal class CraftSystem
     {
 
-        public static void Craft(Player player, int choice)
+        public static bool Craft(Player player, int choice, out string message)
         {
-            Console.Clear();
             CraftReceip craftReceip = null;
-
+            message = string.Empty;
 
             switch (choice)
             {
@@ -51,28 +50,29 @@ namespace Console_Based_RPG.Core
 
             if (craftReceip == null)
             {
-                return;
+                message = "Invalid Choice";
+                return false;
             }
 
             foreach (var req in craftReceip.RequiredItems)
             {
-                if (!player.Inventory.HasMaterial(req.Key, req.Value))
+                if (!player.Inventory.HasItem(req.Key, req.Value))
                 {
-                    Console.WriteLine("You don't have the required materials\nPress any button to continue.");
-                    Console.ReadKey();
-                    return;
+                    message = "You don't have the required materials\nPress any button to continue.";
+                    return true;
                 }
             }
 
             foreach (var req in craftReceip.RequiredItems)
             { 
-                player.Inventory.RemoveMaterial(req.Key, req.Value);
+                player.Inventory.RemoveItem(req.Key, req.Value);
             }
 
             player.AddOneItem(craftReceip.CreateMethod());
 
-            Console.WriteLine($"{craftReceip.ItemToBeCrafted} created successfuly!");
-            Console.ReadKey();
+            message = $"{craftReceip.ItemToBeCrafted} created successfully!";
+
+            return true;
         }
 
     }

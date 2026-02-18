@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Console_Based_RPG.Characters;
+using Console_Based_RPG.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +36,16 @@ namespace Console_Based_RPG.UI
             return StartingMenu.GetValidData(0, 6);
         }
 
+
+        public static void HandleCraftUI(Player player)
+        { 
+            int choice = HandleCraftSystemUI();
+
+            bool result = CraftSystem.Craft(player, choice, out string message); 
+
+            Console.WriteLine(message);
+            Console.ReadKey();
+        }
 
     }
 }

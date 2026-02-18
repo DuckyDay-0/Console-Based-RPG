@@ -76,23 +76,43 @@ namespace Console_Based_RPG.Core
             items.Remove(item);
         }
 
-        public bool HasMaterial(string name, int amount)
+        public bool HasItem(string name, int amount)
         { 
             var material = items.OfType<Material>().FirstOrDefault(m => m.Name == name);
 
-            return material != null && material.Quantity >= amount;
+            if (material != null)
+            { 
+                return material.Quantity >= amount;
+            }
+
+            int count = items.Count(i => i.Name == name);
+            return count >= amount;
 
         }
 
-        public void RemoveMaterial(string name, int amount)
+        public void RemoveItem(string name, int amount)
         {
             var material = items.OfType<Material>().FirstOrDefault(m => m.Name == name);
-            material.RemoveQuantity(amount);
+            
 
-            if (material.Quantity < 1)
-            { 
-                items.Remove(material);
+            if (material != null)
+            {
+                material.RemoveQuantity(amount);
+                if (material.Quantity < 1)
+                {
+                    items.Remove(material);
+                }
+                return;
+
             }
+
+            var toRemove = items
+            .Where(i => i.Name == name)
+            .Take(amount)
+            .ToList();
+
+            foreach (var item in toRemove)
+                items.Remove(item);
         }       
 
         public static int SelectItem(Player player)
