@@ -47,7 +47,7 @@ namespace Console_Based_RPG.UI
                 case 3:
                     Console.Clear();
                     //CraftSystemUI.HandleCraftSystemUI();
-                    CraftSystem.Craft(player, CraftSystemUI.HandleCraftSystemUI());
+                    CraftSystemUI.HandleCraftUI(player);
                     break;
 
                 case 4:

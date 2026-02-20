@@ -13,11 +13,15 @@ namespace Console_Based_RPG.Core
     internal class Game
     {
         private Player player = new Player("Hero");
+        
 
         public void Run()
         {
+            Armor trollHideArmor = new Armor("Troll Hide Armor", 30);
+            player.Inventory.AddItemToInventory(trollHideArmor);
             MainMenuNavigator();
             GameLoopNavigator();
+            
         }
         private void MainMenuNavigator()
         {

@@ -1,4 +1,5 @@
 ﻿using Console_Based_RPG.Characters;
+using Console_Based_RPG.Core;
 using Console_Based_RPG.Items;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,26 @@ namespace Console_Based_RPG.UI
             Console.WriteLine($"Your Current Health and Equipped Items : {player.CurrentHealth}");
             Console.WriteLine($"To do");
             Console.WriteLine($"Enemy Current Health: {enemy.CurrentHealth}");
+        }
+
+        public static void HandlePlayerTurnUI(Player player,Enemy enemy)
+        {
+            Console.Clear();
+            int choice = StartingMenu.GetValidData(0, 1);
+
+            bool result = BattleSystem.PlayerTurn(player, enemy, choice, out string message);
+
+            Console.WriteLine(message);          
+        }
+
+        public static void HandleAttackUI(Character attacker, Character defender)
+        {
+            Console.Clear();
+
+            int result = BattleSystem.Attack(attacker, defender, out string message);
+
+            Console.WriteLine(message);
+            Console.ReadKey();
         }
 
         public static void UsePotionUI(Player player)
