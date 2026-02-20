@@ -20,7 +20,7 @@ namespace Console_Based_RPG.Core
 
                 if (turn)
                 {
-                    PlayerTurn(player, enemy);
+                    BattleUI.HandlePlayerTurnUI(player, enemy);
                 }
                 else
                 {
@@ -32,34 +32,37 @@ namespace Console_Based_RPG.Core
 
         public static void EnemyTurn(Player player, Enemy enemy)
         {
-            Attack(enemy, player);
+            BattleUI.HandleAttackUI(enemy, player);
         }
 
-        public static void PlayerTurn(Player player, Enemy enemy)
+        //Test
+        public static bool PlayerTurn(Player player, Enemy enemy, int choice, out string message)
         {
-            Console.Clear();
             BattleUI.ShowBattleStatsUI(player, enemy);
-            Console.WriteLine();
-            Console.WriteLine("1.Attack");
-            Console.WriteLine("2.Use Potion(Will cost you the turn!)");
 
-            int choice = StartingMenu.GetValidData(0, 1);
+            message = string.Empty;
+
+            message = "";
+
+            message = "1.Attack";
+            message = "2.Use Potion(Will cost you the turn!)";
 
             switch (choice)
             {
                 case 1:
-                    Attack(player, enemy);
+                    BattleUI.HandleAttackUI(player, enemy);
                     break;
 
                 case 2:
                     BattleUI.UsePotionUI(player);
                     break;
             }
+            return true;
         }
 
-        public static void Attack(Character attacker, Character defender)
+        public static int Attack(Character attacker, Character defender, out string message)
         {
-            Console.Clear();
+            message = string.Empty;
             int damage = attacker.TotalDamage - defender.TotalArmor;
 
             if (damage < 1)
@@ -68,19 +71,18 @@ namespace Console_Based_RPG.Core
             }
             if (attacker is Enemy)
             {
-                Console.WriteLine(MessageHelper.MsgRand(GameMessages.EnemyInBattleMsgs));
-                Console.WriteLine($"{damage} was dealth by the enemy!\nPress any button to continue.");
-                Console.ReadKey();
+                message = MessageHelper.MsgRand(GameMessages.EnemyInBattleMsgs);
+                message = $"{damage} was dealth by the enemy!\nPress any button to continue.";
             }
             else 
             {
-                Console.WriteLine(MessageHelper.MsgRand(GameMessages.PlayerInBattleMsgs));
-                Console.WriteLine($"{damage} was dealt to the enemy!\n Press any key to continue.");
-                Console.ReadKey();
+                message = MessageHelper.MsgRand(GameMessages.PlayerInBattleMsgs);
+                message = $"{damage} was dealt to the enemy!\n Press any key to continue.";
             }
-                defender.ReduceHealth(damage);
-            
 
+                defender.ReduceHealth(damage);
+
+            return damage;
         }
     }
 }
