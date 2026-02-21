@@ -15,12 +15,12 @@ namespace Console_Based_RPG.Core
         {
             
             bool turn = playerStarts;
-            while (player.CurrentHealth > 0 && enemy.CurrentHealth > 0)
-            {
-
+            bool battleContinues = true;
+            while (player.CurrentHealth > 0 && enemy.CurrentHealth > 0 && battleContinues)
+            {               
                 if (turn)
                 {
-                    BattleUI.HandlePlayerTurnUI(player, enemy);
+                   battleContinues =  BattleUI.HandlePlayerTurnUI(player, enemy);
                 }
                 else
                 {
@@ -48,10 +48,14 @@ namespace Console_Based_RPG.Core
                 case 2:
                     BattleUI.UsePotionUI(player);
                     break;
+
+                case 3:
+                    return false;
             }
             return true;
         }
-
+        
+ 
         public static int Attack(Character attacker, Character defender, out string message)
         {
             message = string.Empty;

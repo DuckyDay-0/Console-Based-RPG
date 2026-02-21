@@ -19,17 +19,19 @@ namespace Console_Based_RPG.UI
             Console.WriteLine($"Enemy Current Health: {enemy.CurrentHealth}");
         }
 
-        public static void HandlePlayerTurnUI(Player player,Enemy enemy)
+        public static bool HandlePlayerTurnUI(Player player,Enemy enemy)
         {
             Console.Clear();
             ShowBattleStatsUI(player, enemy);
             Console.WriteLine("1.Attack");
             Console.WriteLine("2.Use Potion(Will cost you the turn!)");
-            int choice = StartingMenu.GetValidData(0, 2);
+            Console.WriteLine("3.Flee(End Battle and get nothing!)");
+            int choice = StartingMenu.GetValidData(0, 3);
 
             bool result = BattleSystem.PlayerTurn(player, enemy, choice, out string message);
 
-            Console.WriteLine(message);          
+            Console.WriteLine(message);     
+            return result;
         }
 
         public static void HandleAttackUI(Character attacker, Character defender)
