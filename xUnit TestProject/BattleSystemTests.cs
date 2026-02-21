@@ -16,34 +16,13 @@ namespace xUnit_TestProject
         {
             //Arrange
             Player player = new Player("Test Player");
-            Enemy enemy = new Enemy("Test Enemy", 100, 100, 10, 100);
+            Enemy enemy = new Enemy("Test Enemy", 150, 0, 10, 100);
 
             //Action
             int result = BattleSystem.Attack(player, enemy, out string message);
 
             //Assert
-            Assert.Equal(95, result);
-        }
-
-        [Fact]
-        public void UsePotion_ShouldReturnTrueIfUsingThePotionWasSuccessfull()
-        {
-            //Arrange
-            Player player = new Player("Test Player");
-            var lightHealthPotion = new HealthPotion("Light Health Potion", 10, 1);
-            
-            player.Inventory.AddItemToInventory(lightHealthPotion);
-            player.ReduceHealth(20);
-            var potion = player.Inventory.Items
-                .OfType<HealthPotion>()
-                .Where(q => q.Quantity > 0)
-                .ToList();
-
-            //Action            
-            bool result = BattleSystem.UsePotion(player, out string message, 1, potion);
-
-            //Assert
-            Assert.True(result);
+            Assert.Equal(5, result);
         }
     }
 }

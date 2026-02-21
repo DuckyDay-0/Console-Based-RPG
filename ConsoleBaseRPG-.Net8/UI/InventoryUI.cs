@@ -107,7 +107,7 @@ namespace Console_Based_RPG.UI
             }
 
             Item item = player.Inventory.Items[choice - 1];
-            player.EquipItem(item);
+            player.EquipItem(item, out string message);
             InventoryNavigator(player);
         }
 

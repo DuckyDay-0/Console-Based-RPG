@@ -35,17 +35,9 @@ namespace Console_Based_RPG.Core
             BattleUI.HandleAttackUI(enemy, player);
         }
 
-        //Test
         public static bool PlayerTurn(Player player, Enemy enemy, int choice, out string message)
         {
-            BattleUI.ShowBattleStatsUI(player, enemy);
-
             message = string.Empty;
-
-            message = "";
-
-            message = "1.Attack";
-            message = "2.Use Potion(Will cost you the turn!)";
 
             switch (choice)
             {
