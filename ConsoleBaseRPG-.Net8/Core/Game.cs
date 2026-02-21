@@ -17,8 +17,8 @@ namespace Console_Based_RPG.Core
 
         public void Run()
         {
-            Armor trollHideArmor = new Armor("Troll Hide Armor", 30);
-            player.Inventory.AddItemToInventory(trollHideArmor);
+            Material surtlingCore = new Material("Charged Swamp Core", "Swamp Access Key", 1);
+            player.Inventory.AddItemToInventory(surtlingCore);
             MainMenuNavigator();
             GameLoopNavigator();
             

@@ -18,7 +18,12 @@ namespace Console_Based_RPG.Items
             {"turnip seeds", new Material("Turnip Seeds", "Material")},
             {"charged swamped core", new Material("Charged Swamp Core", "Swamp Access Key") },
             {"living vine core", new Material("Living Vine Core", "Craftable Material")},
-            {"ancient alloy plate", new Material("Ancient Alloy Plate", "Craftable Material")}
+            {"ancient alloy plate", new Material("Ancient Alloy Plate", "Craftable Material")},
+            {"muddy scrap", new Material("Muddy Scrap", "Material")},
+            {"ancient bark", new Material("Ancient Bark", "Material")},
+            {"turnip seeds", new Material("Turnip Seeds", "Material")},
+            {"blood bags", new Material("Bloodbag", "Material")},
+            {"entrails", new Material("Entrails", "Material")}
         };
     }
 }

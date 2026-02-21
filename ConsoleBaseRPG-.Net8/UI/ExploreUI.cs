@@ -24,7 +24,7 @@ namespace Console_Based_RPG.UI
 
                 case 2:
                     Console.Clear();
-                    ExploreUI.Swamp();
+                    Explore.HandleSwampExplore(player);
                     break;
 
                 case 3:
@@ -70,7 +70,7 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("1.Mine Mudy Scrap Piles(+Mudy Scrap)");
             Console.WriteLine("2.Ancient Trees(+Ancient Bark)");
             Console.WriteLine("3.Pick Turnips(+Turnip Seeds)");
-            Console.WriteLine("4.Hunt Swap Creatures(+Bloodbags,+Entrails, ->Get Into Combat)");
+            Console.WriteLine("4.Hunt Swamp Creatures(+Bloodbags,+Entrails, ->Get Into Combat)");
             Console.WriteLine("0.Exit");
 
 
