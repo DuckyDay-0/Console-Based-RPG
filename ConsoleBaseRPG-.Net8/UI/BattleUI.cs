@@ -1,6 +1,7 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.Core;
 using Console_Based_RPG.Items;
+using ConsoleBaseRPG_.Net8.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace Console_Based_RPG.UI
                 int choice = StartingMenu.GetValidData(0, potions.Count);
 
                 Item potion = potions[choice - 1];
-                player.EquipItem(potion);
+                PlayerUI.HealUI(potion, player);
             }
             else
             {

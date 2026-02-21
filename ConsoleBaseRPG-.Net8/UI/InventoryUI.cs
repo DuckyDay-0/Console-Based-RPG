@@ -110,7 +110,7 @@ namespace Console_Based_RPG.UI
             player.EquipItem(item);
             InventoryNavigator(player);
         }
- 
+
 
         
     }

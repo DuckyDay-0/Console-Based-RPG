@@ -31,6 +31,45 @@ namespace Console_Based_RPG.Characters
             Inventory.AddItemToInventory(item);
         }
 
+        //Test
+        public bool EquipArmor(Item item, out string message)
+        {
+            message = string.Empty;
+            if (item is Armor armor)
+            {
+                EquipArmor(armor.ArmorBonus);
+                armor.isEquipped = true;
+                message = $"{armor.Name} equipped.";
+            }
+            return true;
+        }
+
+        //Test
+        public bool EquipWeapon(Item item, out string message) 
+        {
+            message = string.Empty;
+            if (item is Weapon weapon)
+            {
+                EquipWeapon(weapon.DamageBonus);
+                weapon.isEquipped = true;
+                message = $"{weapon.Name} eqipped.";
+            }
+            return true;
+        }
+
+        //Test
+        public bool Heal(Item item, out string message)
+        {
+            message = string.Empty;
+            if (item is HealthPotion healthPotion)
+            {
+                IncreaseHealth(healthPotion.PotionHealthBonus);
+                healthPotion.RemoveQuantity(1);
+                message = $"{healthPotion.Name} used.\nCurrent Health: {CurrentHealth}";
+                message = "Click any button to continue.";
+            }
+            return true;
+        }
         public void EquipItem(Item item)
         {
             foreach (var invItem in Inventory.Items.ToList())
@@ -41,34 +80,29 @@ namespace Console_Based_RPG.Characters
                 }
             }
 
-            if (item is Material material)
+            if (item is Armor)
+            {
+                EquipArmor(item, out string message);
+            }
+
+            else if (item is Weapon)
+            {
+                EquipWeapon(item, out string message);
+            }
+
+            else if (item is HealthPotion)
+            { 
+                Heal(item, out string message);
+            }
+
+            else if (item is Material material)
             {
                 Console.Clear();
                 Console.WriteLine("You can't equip this item! \nPress any button to continue.");
                 Console.ReadKey();
                 return;
             }
-            else if (item is Armor armor)
-            {
-                EquipArmor(armor.ArmorBonus);
-                armor.isEquipped = true;
-                Console.WriteLine($"{armor.Name} equipped.");
-            }
-            else if (item is Weapon weapon)
-            {
-                EquipWeapon(weapon.DamageBonus);
-                weapon.isEquipped = true;
-                Console.WriteLine($"{weapon.Name} eqipped.");
-            }
-            else if (item is HealthPotion healthPotion)
-            {
-                Console.Clear();
-                IncreaseHealth(healthPotion.PotionHealthBonus);
-                healthPotion.RemoveQuantity(1);
-                Console.WriteLine($"{healthPotion.Name} used.\nCurrent Health: {CurrentHealth}");
-                Console.WriteLine("Click any button to continue.");
-                Console.ReadKey();
-            }
+
             else
             {
                 Console.WriteLine("Item could not be equipped!");
