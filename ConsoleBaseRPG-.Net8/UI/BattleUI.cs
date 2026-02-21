@@ -22,7 +22,10 @@ namespace Console_Based_RPG.UI
         public static void HandlePlayerTurnUI(Player player,Enemy enemy)
         {
             Console.Clear();
-            int choice = StartingMenu.GetValidData(0, 1);
+            ShowBattleStatsUI(player, enemy);
+            Console.WriteLine("1.Attack");
+            Console.WriteLine("2.Use Potion(Will cost you the turn!)");
+            int choice = StartingMenu.GetValidData(0, 2);
 
             bool result = BattleSystem.PlayerTurn(player, enemy, choice, out string message);
 
