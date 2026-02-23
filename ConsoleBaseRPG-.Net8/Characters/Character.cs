@@ -77,6 +77,10 @@ namespace Console_Based_RPG.Characters
         public void IncreaseStrenght(int strenghtBonus)
         {
             bonusStrenght += strenghtBonus;
+            if (TotalStrenght > 100)
+            {
+                bonusStrenght = 100;
+            }
         }
 
 
@@ -104,6 +108,10 @@ namespace Console_Based_RPG.Characters
         public void IncreaseHealth(int healthBonus)
         {
             currentHealth += healthBonus;
+            if (currentHealth > 100)
+            { 
+                currentHealth = 100;
+            }
         }
 
         //To do

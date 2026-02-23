@@ -32,8 +32,21 @@ namespace Console_Based_RPG.UI
             Console.WriteLine();
             Console.WriteLine("6.Health Potion <- Sturling Core(8) + Copper(8)");
             Console.WriteLine("|__Can be used to increase your Health by 60");
+            Console.WriteLine();
+            Console.WriteLine("7.Strenght Potion <- Sturling Core(2) + Copper(2)");
+            Console.WriteLine("|__Can be used to increase your Strenght by 40");
+            Console.WriteLine();
+            Console.WriteLine("7.Strenght Potion <- Sturling Core(2) + Copper(2)");
+            Console.WriteLine("|__Can be used to increase your Strenght by 40");
+            Console.WriteLine();
+            Console.WriteLine("7.Strenght Potion <- Sturling Core(2) + Copper(2)");
+            Console.WriteLine("|__Can be used to increase your Strenght by 40");
+            Console.WriteLine();
+            Console.WriteLine("7.Strenght Potion <- Sturling Core(2) + Copper(2)");
+            Console.WriteLine("|__Can be used to increase your Strenght by 40");
+            Console.WriteLine();
             Console.WriteLine("0. Exit");
-            return StartingMenu.GetValidData(0, 6);
+            return StartingMenu.GetValidData(0, 7);
         }
 
 

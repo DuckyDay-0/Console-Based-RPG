@@ -38,5 +38,19 @@ namespace Console_Based_RPG.Core
 
         }
 
+        public static Enemy CreateEnemy_Dragon(string enemyName, Player player, string situation)
+        {
+            int enemyHealth = (int)(player.CurrentHealth * 1.4);
+            int enemyDamage = player.TotalDamage;
+            int enemyArmor = (int)(player.TotalArmor / 0.3);
+
+            if (situation == "ambush")
+            {
+                enemyDamage += 40;
+            }
+
+            return new Enemy(enemyName, enemyHealth, enemyArmor, enemyDamage, 0);
+        }
+
     }
 }

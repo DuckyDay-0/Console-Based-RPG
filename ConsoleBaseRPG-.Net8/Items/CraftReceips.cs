@@ -78,5 +78,27 @@ namespace Console_Based_RPG.Items
                {"Copper", 8}
             }
         );
+
+        public static CraftReceip StrenghtPotion = new CraftReceip
+        (
+            "Strenght Potion",
+            () => new Material("Strenght Potion", "Craftable Item", 1),
+            new Dictionary<string, int>
+            {
+                       {"Sturling Core", 2},
+                       {"Copper", 2}
+            }
+        );
+
+        public static CraftReceip ArtisanTable = new CraftReceip
+        (
+            "Artisan Table",
+            () => new Material("Artisan Table", "Craftable Item", 1),
+            new Dictionary<string, int>
+            {
+                       {"Dragon Tears", 2},
+                       {"Pine Wood", 8}
+            }
+        );
     }
 }

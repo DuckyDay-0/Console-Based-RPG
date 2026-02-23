@@ -17,21 +17,35 @@ namespace xUnit_TestProject
         [Fact]
         public void IncreaseHealth_ShouldIncreaseHealth()
         {
-            var character = new Character(80, 0, 5, 10);
+            //Arrange
+            var character1 = new Character(80, 0, 5, 10);
+            var character2 = new Character(100, 0, 5, 10);
 
-            character.IncreaseHealth(20);
+            //Act
+            character1.IncreaseHealth(20);
+            character2.IncreaseHealth(20);
 
-            Assert.Equal(100, character.CurrentHealth);
+            //Assert
+            Assert.Equal(100, character1.CurrentHealth);
+            Assert.Equal(100, character2.CurrentHealth);
         }
 
         [Fact]
         public void ReduceStrenght_ShouldReduceStrenght()
         {
-            var character = new Character(100, 0 ,5 ,40);
+            //Arrange
+            var character1 = new Character(100, 0 ,5 ,40);
+            var character2 = new Character(100, 0, 5, 10);
+            var character3 = new Character(100, 0, 5, 5);
+            //Act
+            character1.ReduceStrenght(20);
+            character2.ReduceStrenght(30);
+            bool result = character3.ReduceStrenght(10);
 
-            character.ReduceStrenght(20);
-
-            Assert.Equal(20, character.TotalStrenght);
+            //Assert
+            Assert.Equal(20, character1.TotalStrenght);
+            Assert.Equal(70, character2.CurrentHealth);
+            Assert.False(result);
         }
 
         [Fact]

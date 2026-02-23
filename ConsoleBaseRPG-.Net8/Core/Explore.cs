@@ -33,6 +33,7 @@ namespace Console_Based_RPG.Core
                         player.AddOneItem(trollArmor);
                         break;
                     }
+
                     else if (battleChance < 25)
                     {
                         Console.Clear();
@@ -40,6 +41,7 @@ namespace Console_Based_RPG.Core
                         Console.ReadKey();
                         break;
                     }
+
                     else if (battleChance <= 100)
                     {
                         Enemy enemy = EnemyFactory.CreateEnemy_Troll("Troll", player, "no ambush");
@@ -130,5 +132,124 @@ namespace Console_Based_RPG.Core
                 return;
             }
         }
+
+        public static void HandleMountainsExplore(Player player)
+        {
+            Random randomBattle = new Random();
+            Random randomTreasureOrAmbush = new Random();
+
+            int choice = ExploreUI.Mountains();
+            int battleChance = randomBattle.Next(0, 100);
+            int trasureOrAmbushChance = randomTreasureOrAmbush.Next(0, 100);
+            switch (choice)
+            {
+                case 1:
+                    if (battleChance <= 15)
+                    {
+                        Material dragonTears = Materials.materials["dragon tears"];
+                        FarmingSystem.Farm(player, dragonTears);
+                    }
+                    else if (battleChance <= 45)
+                    {
+                        Console.WriteLine("Well, looks like this nest was raided already...");
+                    }
+                    else if (battleChance <= 100)
+                    {
+                        Enemy enemy = EnemyFactory.CreateEnemy_Dragon("Dragon", player, "no ambush");
+                        bool playerStarts = true;
+                        BattleSystem.StartBattle(player, enemy,playerStarts);
+                    }
+                        break;
+
+                case 2:
+                    if (trasureOrAmbushChance <= 28)
+                    { 
+                        
+                    }
+                    break;
+
+                case 3:
+                    Material pineWood = Materials.materials["pine wood"];
+                    FarmingSystem.Farm(player, pineWood);
+                    break;
+
+                case 4:
+                    Material copper = Materials.materials["copper"];
+                    FarmingSystem.Farm(player, copper);
+                    break;
+                case 0:
+                    break;
+            }
+        }
+
+        //public static void HandlePlainsExplore(Player player)
+        //{
+        //    var chargedSwampCore = player.Inventory.Items
+        //        .OfType<Material>()
+        //        .FirstOrDefault(n => n.Name == "Charged Swamp Core");
+
+        //    if (chargedSwampCore != null)
+        //    {
+
+        //        Random random = new Random();
+
+        //        int choice = ExploreUI.Swamp();
+        //        int battleChance = random.Next(0, 100);
+        //        switch (choice)
+        //        {
+        //            case 1:
+        //                Material muddyScrap = Materials.materials["muddy scrap"];
+        //                FarmingSystem.Farm(player, muddyScrap);
+        //                break;
+
+        //            case 2:
+        //                Material ancientBark = Materials.materials["ancient bark"];
+        //                FarmingSystem.Farm(player, ancientBark);
+        //                break;
+
+        //            case 3:
+        //                Material turnipSeeds = Materials.materials["turnip seeds"];
+        //                FarmingSystem.Farm(player, turnipSeeds);
+        //                break;
+
+        //            case 4:
+        //                //Needs to be cleaned up
+        //                if (battleChance <= 5)
+        //                {
+        //                    Item bloodbag = Materials.materials["bloodbag"];
+        //                    Item entrails = Materials.materials["entrails"];
+
+        //                    player.AddOneItem(bloodbag);
+        //                    player.AddOneItem(entrails);
+
+        //                    break;
+        //                }
+        //                else if (battleChance < 25)
+        //                {
+        //                    Console.Clear();
+        //                    Console.WriteLine("Well, looks like there are no creatures around...");
+        //                    Console.ReadKey();
+        //                    break;
+        //                }
+        //                else if (battleChance <= 100)
+        //                {
+        //                    Enemy enemy = EnemyFactory.CreateEnemy_SwampCreature("Swamp Creature", player, "no ambush");
+        //                    bool playerStarts = true;
+        //                    BattleSystem.StartBattle(player, enemy, playerStarts);
+        //                }
+        //                break;
+
+        //            case 0:
+        //                break;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.Clear();
+        //        Console.WriteLine("You need Charged Swamp Core to access this biom!");
+        //        Console.ReadKey();
+        //        return;
+        //    }
+        //} 
     }
 }

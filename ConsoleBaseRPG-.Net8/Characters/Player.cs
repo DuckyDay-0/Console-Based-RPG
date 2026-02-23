@@ -58,7 +58,7 @@ namespace Console_Based_RPG.Characters
             healthPotion.RemoveQuantity(1);
             message = $"{healthPotion.Name} used.\nCurrent Health: {CurrentHealth}";
             message = "Click any button to continue.";
-          
+            
             return true;
         }
         public void EquipItem(Item item, out string message)

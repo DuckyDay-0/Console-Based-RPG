@@ -43,6 +43,9 @@ namespace Console_Based_RPG.Core
                     craftReceip = CraftReceips.HighHealthPotion;
                     break;
 
+                case 7:
+                    craftReceip = CraftReceips.StrenghtPotion;
+                    break;
                 case 0:
 
                     break;

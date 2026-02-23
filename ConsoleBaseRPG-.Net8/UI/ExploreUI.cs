@@ -77,9 +77,26 @@ namespace Console_Based_RPG.UI
             return StartingMenu.GetValidData(1, 5);
         }
 
+        public static int Mountains()
+        {
+            Console.WriteLine("----Mountains----");
+            Console.WriteLine("1.Explore Dragon Nests(+Dragon Tears, ->Get Into Combat)");
+            Console.WriteLine("2.Explore Frost Caves(Chance of getting a treasure)");
+            Console.WriteLine("3.Mine Silver(+Silver)");
+            Console.WriteLine("4.Hunting Wolves(+Wolf Skin, ->Get Into Combat)");
+            Console.WriteLine("0.Exit");
+
+            return StartingMenu.GetValidData(1, 5);
+        }
+
         public static void Plains()
-        { 
-         // to do 
+        {
+            Console.WriteLine("----Plains----");
+            Console.WriteLine("1.Farm Flax(+Flax)");
+            Console.WriteLine("2.Gather Black Metal(+Black Metal)");
+            Console.WriteLine("3.Tame Lox(+Food, +Hides, ->Get Into Combat)");
+            Console.WriteLine("4.Explore Villages(Chance of getting a treasure!)");
+            Console.WriteLine("0.Exit");
         }
 
        

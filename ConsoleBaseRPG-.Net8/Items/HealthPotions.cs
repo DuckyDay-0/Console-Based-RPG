@@ -13,7 +13,8 @@ namespace Console_Based_RPG.Items
             {
                 {"light health potion", new HealthPotion("Light Health Potion", 15, 1)},
                 {"mid health potion", new HealthPotion("Mid Health Potion", 30, 1)},
-                {"high health potion", new HealthPotion("High Health Potion", 60, 1)}
+                {"high health potion", new HealthPotion("High Health Potion", 60, 1)},
+                {"strenght potion", new HealthPotion("Strenght Potion", 40, 1)}
             };
     }
 }

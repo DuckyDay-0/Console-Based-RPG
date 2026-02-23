@@ -23,6 +23,7 @@ namespace Console_Based_RPG.Items
             {"ancient bark", new Material("Ancient Bark", "Material")},
             {"turnip seeds", new Material("Turnip Seeds", "Material")},
             {"blood bags", new Material("Bloodbag", "Material")},
+            {"dragon tears", new Material("Dragon Tears", "Material")},
             {"entrails", new Material("Entrails", "Material")}
         };
     }

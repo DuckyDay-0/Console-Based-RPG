@@ -17,8 +17,8 @@ namespace Console_Based_RPG.Core
 
         public void Run()
         {
-            Material surtlingCore = new Material("Charged Swamp Core", "Swamp Access Key", 1);
-            player.Inventory.AddItemToInventory(surtlingCore);
+            HealthPotion strenghtPotion = new HealthPotion("Strenght Potion", 40, 1);
+            player.Inventory.AddItemToInventory(strenghtPotion);
             MainMenuNavigator();
             GameLoopNavigator();
             
