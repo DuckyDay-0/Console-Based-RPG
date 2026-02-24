@@ -1,6 +1,8 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.Items;
 using Console_Based_RPG.UI;
+using ConsoleBaseRPG_.Net8;
+using ConsoleBaseRPG_.Net8.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -162,20 +164,28 @@ namespace Console_Based_RPG.Core
                         break;
 
                 case 2:
-                    if (trasureOrAmbushChance <= 28)
-                    { 
-                        
+                    if (trasureOrAmbushChance <= 70)
+                    {
+                        var allItems = Global.GetAllItems();
+                        var treasure = TreasureSystem.GenerateTreasure(allItems, player);
                     }
-                    break;
+                    else if (trasureOrAmbushChance <= 100)
+                    {
+                        Enemy enemy = EnemyFactory.CreateEnemy_Dragon("Red Dragon", player, "ambush");
+                        bool playerStarts = false;
+                        BattleSystem.StartBattle(player,enemy, playerStarts);
+                    }
+                        break;
 
                 case 3:
-                    Material pineWood = Materials.materials["pine wood"];
-                    FarmingSystem.Farm(player, pineWood);
+                    Material silver = Materials.materials["silver"];
+                    FarmingSystem.Farm(player, silver);
                     break;
 
                 case 4:
-                    Material copper = Materials.materials["copper"];
-                    FarmingSystem.Farm(player, copper);
+                    Material wolfSkin = Materials.materials["wolf skin"];
+                    //Wolf Battle
+                    FarmingSystem.Farm(player, wolfSkin);
                     break;
                 case 0:
                     break;

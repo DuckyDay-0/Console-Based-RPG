@@ -17,12 +17,12 @@ namespace Console_Based_RPG.Core
 
         public void Run()
         {
-            HealthPotion strenghtPotion = new HealthPotion("Strenght Potion", 40, 1);
-            player.Inventory.AddItemToInventory(strenghtPotion);
+            
             MainMenuNavigator();
             GameLoopNavigator();
             
         }
+        
         private void MainMenuNavigator()
         {
             int choice = StartingMenu.StartingMenuText();
@@ -83,7 +83,7 @@ namespace Console_Based_RPG.Core
                 }
             }
         }
-
+      
         public void Die()
         { 
             //To do

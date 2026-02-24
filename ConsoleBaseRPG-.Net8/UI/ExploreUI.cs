@@ -29,7 +29,7 @@ namespace Console_Based_RPG.UI
 
                 case 3:
                     Console.Clear();
-                    ExploreUI.Plains();
+                    Explore.HandleMountainsExplore(player);
                     break;
 
                 case 0:
@@ -44,10 +44,11 @@ namespace Console_Based_RPG.UI
             Console.WriteLine("----Places to Explore----");
             Console.WriteLine("1.BlackForest");
             Console.WriteLine("2.Swamp");
-            Console.WriteLine("3.Plains");
+            Console.WriteLine("3.Mountains");
+            Console.WriteLine("4.Plains");
             Console.WriteLine("0.Exit");
 
-            return StartingMenu.GetValidData(0, 3);
+            return StartingMenu.GetValidData(0, 4);
         }
 
 

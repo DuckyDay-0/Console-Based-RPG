@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Console_Based_RPG.Items
 {
-    internal abstract class Item
+    public abstract class Item
     {
         public string Name { get; }
         public string Description { get; }
