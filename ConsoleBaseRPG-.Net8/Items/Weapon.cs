@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Console_Based_RPG.Characters;
+using ConsoleBaseRPG_.Net8.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Console_Based_RPG.Items
 {
-    internal class Weapon : Item
+    internal class Weapon : Item, IInteractable
     {
         public int DamageBonus { get; }
 
@@ -14,5 +16,21 @@ namespace Console_Based_RPG.Items
         {
             DamageBonus = damageBonus;   
         }
+
+        public bool Equip(Player player, out string message)
+        {
+            message = string.Empty;
+
+            if (isEquipped)
+            {
+                message = $"{Name} equipped.";
+                return false;
+            }
+            player.EquipWeapon(this);
+
+            isEquipped = true;
+            return true;
+        }
+
     }
 }

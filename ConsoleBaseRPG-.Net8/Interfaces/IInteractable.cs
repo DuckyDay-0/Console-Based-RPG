@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleBaseRPG_.Net8.Interfaces
 {
-    internal interface IEquipable
+    internal interface IInteractable
     {
-        public void Equip(Player player);
+        public bool Equip(Player player, out string message);
     }
 }

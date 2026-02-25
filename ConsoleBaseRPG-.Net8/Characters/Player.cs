@@ -1,5 +1,6 @@
 ﻿using Console_Based_RPG.Core;
 using Console_Based_RPG.Items;
+using ConsoleBaseRPG_.Net8.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,37 +32,33 @@ namespace Console_Based_RPG.Characters
             Inventory.AddItemToInventory(item);
         }
 
-        public bool EquipArmor(Armor armor, out string message)
+        //Test
+        public bool EquipArmor(Armor armor)
         {
-            message = string.Empty;
             EquipArmor(armor.ArmorBonus);
-            armor.isEquipped = true;
-            message = $"{armor.Name} equipped.";
-            
             return true;
         }
 
-        public bool EquipWeapon(Weapon weapon, out string message) 
-        {
-            message = string.Empty;          
-            EquipWeapon(weapon.DamageBonus);
-            weapon.isEquipped = true;
-            message = $"{weapon.Name} eqipped.";   
-            
+        public bool EquipWeapon(Weapon weapon) 
+        {              
+            EquipWeapon(weapon.DamageBonus);                      
             return true;
         }
 
-        public bool Heal(HealthPotion healthPotion, out string message)
+        public bool UnequipWeapon(Weapon weapon)
         {
-            message = string.Empty;
+            UnequipWeapon(weapon.DamageBonus);
+            return true;
+        }
+
+        public bool Heal(HealthPotion healthPotion)
+        {         
             IncreaseHealth(healthPotion.PotionHealthBonus);
-            healthPotion.RemoveQuantity(1);
-            message = $"{healthPotion.Name} used.\nCurrent Health: {CurrentHealth}";
-            message = "Click any button to continue.";
-            
+            healthPotion.RemoveQuantity(1);            
             return true;
         }
-        public void EquipItem(Item item, out string message)
+
+        public bool EquipItem(Item item, out string message)
         {
             message = string.Empty;
             foreach (var invItem in Inventory.Items.ToList())
@@ -72,23 +69,15 @@ namespace Console_Based_RPG.Characters
                 }
             }
 
-            switch (item)
+            if (item is IInteractable interactable)
             {
-                case Armor armor:
-                    EquipArmor(armor, out message);
-                    break;
-
-                case Weapon weapon:
-                    EquipWeapon(weapon, out message);
-                    break;
-
-                case HealthPotion healthPotion:
-                    Heal(healthPotion, out message);
-                    break;
-
-                default:
-                    Console.WriteLine("You can't equip this item!");
-                    break;
+                interactable.Equip(this, out message);
+                return true;
+            }
+            else
+            {
+                message = "You can't equip this item";
+                return false;
             }
         }
 

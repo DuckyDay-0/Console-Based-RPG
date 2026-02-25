@@ -59,7 +59,7 @@ namespace Console_Based_RPG.UI
             Console.Clear();
             player.Inventory.ShowInventory();
             Console.WriteLine("Select which item you want to remove.");
-            Console.WriteLine("Press 0 to go cancel.");
+            Console.WriteLine("Press 0 to cancel.");
 
 
             if (player.Inventory.Items.Count == 0)
@@ -76,7 +76,7 @@ namespace Console_Based_RPG.UI
 
 
             Item item = player.Inventory.Items[choice - 1];
-            player.Inventory.RemoveItemsFromInventory(item, player);
+            player.Inventory.RemoveItemsFromInventory(item, player, out string message);
             InventoryNavigator(player);
         }
 

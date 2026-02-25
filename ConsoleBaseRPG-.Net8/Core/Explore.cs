@@ -3,6 +3,7 @@ using Console_Based_RPG.Items;
 using Console_Based_RPG.UI;
 using ConsoleBaseRPG_.Net8;
 using ConsoleBaseRPG_.Net8.Core;
+using ConsoleBaseRPG_.Net8.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Console_Based_RPG.Core
             {
                 case 1:
                     Material surtlingCore = Materials.materials["sturling core"];
-                    FarmingSystem.Farm(player,surtlingCore);
+                    FarmingSystemUI.HandleFarmingSystemUI(player,surtlingCore);
                     break;
 
                 case 2:
@@ -54,14 +55,17 @@ namespace Console_Based_RPG.Core
 
                 case 3:
                     Material pineWood = Materials.materials["pine wood"];
-                    FarmingSystem.Farm(player, pineWood);
+                    FarmingSystemUI.HandleFarmingSystemUI(player, pineWood);
                     break;
 
                 case 4:
                     Material copper = Materials.materials["copper"];
-                    FarmingSystem.Farm(player, copper);
+                    FarmingSystemUI.HandleFarmingSystemUI(player, copper);
                     break;
+
                 case 0:
+                    //Console.Clear();
+                    //ExploreUI.ExploreNavigator(player);
                     break;
             }
         }
@@ -82,17 +86,17 @@ namespace Console_Based_RPG.Core
                 {
                     case 1:
                         Material muddyScrap = Materials.materials["muddy scrap"];
-                        FarmingSystem.Farm(player, muddyScrap);
+                        FarmingSystemUI.HandleFarmingSystemUI(player, muddyScrap);
                         break;
 
                     case 2:
                         Material ancientBark = Materials.materials["ancient bark"];
-                        FarmingSystem.Farm(player, ancientBark);
+                        FarmingSystemUI.HandleFarmingSystemUI(player, ancientBark);
                         break;
 
                     case 3:
                         Material turnipSeeds = Materials.materials["turnip seeds"];
-                        FarmingSystem.Farm(player, turnipSeeds);
+                        FarmingSystemUI.HandleFarmingSystemUI(player, turnipSeeds);
                         break;
 
                     case 4:
@@ -149,7 +153,7 @@ namespace Console_Based_RPG.Core
                     if (battleChance <= 15)
                     {
                         Material dragonTears = Materials.materials["dragon tears"];
-                        FarmingSystem.Farm(player, dragonTears);
+                        FarmingSystemUI.HandleFarmingSystemUI(player, dragonTears);
                     }
                     else if (battleChance <= 45)
                     {
@@ -167,7 +171,8 @@ namespace Console_Based_RPG.Core
                     if (trasureOrAmbushChance <= 70)
                     {
                         var allItems = Global.GetAllItems();
-                        var treasure = TreasureSystem.GenerateTreasure(allItems, player);
+                        var treasure = new TreasureSystem();
+                        var found = treasure.GenerateTreasure(allItems,player);
                     }
                     else if (trasureOrAmbushChance <= 100)
                     {
@@ -179,13 +184,13 @@ namespace Console_Based_RPG.Core
 
                 case 3:
                     Material silver = Materials.materials["silver"];
-                    FarmingSystem.Farm(player, silver);
+                    FarmingSystemUI.HandleFarmingSystemUI(player, silver);
                     break;
 
                 case 4:
                     Material wolfSkin = Materials.materials["wolf skin"];
                     //Wolf Battle
-                    FarmingSystem.Farm(player, wolfSkin);
+                    FarmingSystemUI.HandleFarmingSystemUI(player, wolfSkin);
                     break;
                 case 0:
                     break;

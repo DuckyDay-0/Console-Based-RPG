@@ -11,28 +11,31 @@ namespace ConsoleBaseRPG_.Net8.Core
 {
     internal class TreasureSystem
     {
-        private static Random random = new Random();
+        private readonly Random _random;
 
-        public static List<Item> GenerateTreasure(List<Item> possibleItems, Player player)
+        public TreasureSystem(Random? random = null)
+        {
+            _random = random ?? new Random();
+        }
+
+        public List<Item> GenerateTreasure(List<Item> possibleItems, Player player)
         {
             List<Item> treasure = new List<Item>();
-            int chance = random.Next(0, 100);
-            int itemCount = random.Next(1, 4);
+            int chance = _random.Next(0, 100);
 
             if (chance <= 50)
             { 
                 return treasure;
             }
+            int itemCount = _random.Next(1, 4);
 
-            else if (chance <= 100)
-            {
                 for (int i = 0; i < itemCount; i++)
                 {
-                    int index = random.Next(possibleItems.Count);
+                    int index = _random.Next(possibleItems.Count);
                     treasure.Add(possibleItems[index]);
                 }
                 player.AddMultipleItems(treasure);
-            }
+            
             return treasure;
         }
 

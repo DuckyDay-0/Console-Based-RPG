@@ -34,6 +34,8 @@ namespace Console_Based_RPG.UI
             return result;
         }
 
+       
+
         public static void HandleAttackUI(Character attacker, Character defender)
         {
             Console.Clear();
