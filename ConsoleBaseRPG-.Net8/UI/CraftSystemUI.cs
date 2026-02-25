@@ -15,6 +15,12 @@ namespace Console_Based_RPG.UI
         {
             Console.WriteLine("----Craft Table----");
             Console.WriteLine("What do you want to craft today?");
+            Console.WriteLine("1.Armors");
+            Console.WriteLine("2.Weapons");
+            Console.WriteLine("3.Potions");
+            Console.WriteLine("4.Materials");
+            Console.WriteLine("5.Other Items");
+
             Console.WriteLine("1. Ancient Alloy Plate <- Wood(8) + Troll Hide Armor(4)");
             Console.WriteLine("|__Can be used to create Living Vine Core");
             Console.WriteLine();

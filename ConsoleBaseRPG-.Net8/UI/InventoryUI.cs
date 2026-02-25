@@ -1,6 +1,6 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.Core;
-using Console_Based_RPG.Items;
+using ConsoleBaseRPG_.Net8.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +59,7 @@ namespace Console_Based_RPG.UI
             Console.Clear();
             player.Inventory.ShowInventory();
             Console.WriteLine("Select which item you want to remove.");
-            Console.WriteLine("Press 0 to go cancel.");
+            Console.WriteLine("Press 0 to cancel.");
 
 
             if (player.Inventory.Items.Count == 0)
@@ -67,7 +67,7 @@ namespace Console_Based_RPG.UI
                 Console.ReadKey();
                 return;
             }
-            int choice = Inventory.SelectItem(player);
+            int choice = InventorySystem.SelectItem(player);
 
             if (choice == 0)
             {
@@ -76,7 +76,7 @@ namespace Console_Based_RPG.UI
 
 
             Item item = player.Inventory.Items[choice - 1];
-            player.Inventory.RemoveItemsFromInventory(item, player);
+            player.Inventory.RemoveItemsFromInventory(item, player, out string message);
             InventoryNavigator(player);
         }
 
@@ -93,7 +93,7 @@ namespace Console_Based_RPG.UI
                 return;
             }
 
-            int choice = Inventory.SelectItem(player);
+            int choice = InventorySystem.SelectItem(player);
 
             if (choice == 0)
             {

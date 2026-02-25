@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Console_Based_RPG.Characters;
+using ConsoleBaseRPG_.Net8.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Based_RPG.Items
+namespace ConsoleBaseRPG_.Net8.Entity
 {
-    internal class HealthPotion : Item
+    internal class HealthPotion : Item, IInteractable
     {
         public int Quantity { get; private set; }
         public int PotionHealthBonus { get; }
@@ -29,6 +31,16 @@ namespace Console_Based_RPG.Items
             {
                 Quantity = 0;
             }
+        }
+
+        public bool Equip(Player player, out string message)
+        {
+            message = string.Empty;
+            player.Heal(this);           
+            message = $"{Name} used.\nCurrent Health: {player.CurrentHealth}";
+            message = "Click any button to continue.";
+
+            return true;
         }
     }
 }

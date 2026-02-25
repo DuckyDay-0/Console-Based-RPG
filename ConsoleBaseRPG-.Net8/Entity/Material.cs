@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Based_RPG.Items
+namespace ConsoleBaseRPG_.Net8.Entity
 {
     internal class Material : Item
     {

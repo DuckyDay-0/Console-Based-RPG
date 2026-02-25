@@ -1,6 +1,6 @@
 ﻿using Console_Based_RPG.Characters;
-using Console_Based_RPG.Items;
 using Console_Based_RPG.UI;
+using ConsoleBaseRPG_.Net8.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Console_Based_RPG.Core
 {
-    internal class Inventory
+    internal class InventorySystem
     {
         private List<Item> items = new List<Item>();
 
@@ -50,14 +50,15 @@ namespace Console_Based_RPG.Core
             items.Add(item);
         }
 
-        public void RemoveItemsFromInventory(Item item, Player player)
+
+        public void RemoveItemsFromInventory(Item item, Player player, out string message)
         {
+            message = string.Empty;
             if (item is Material material)
             {
                 if (material.Quantity > 1)
                 {
-                    Console.Clear();
-                    Console.WriteLine($"How much of the item do you want to remove?\nCurrent {item.Name} Quantity: {material.Quantity}");
+                    message = $"How much of the item do you want to remove?\nCurrent {item.Name} Quantity: {material.Quantity}";
                     int amount = StartingMenu.GetValidData(1, material.Quantity);
 
                     material.RemoveQuantity(amount);

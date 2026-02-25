@@ -1,4 +1,5 @@
 ﻿using Console_Based_RPG.Items;
+using ConsoleBaseRPG_.Net8.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

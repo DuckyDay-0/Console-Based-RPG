@@ -19,17 +19,17 @@ namespace Console_Based_RPG.UI
             {
                 case 1:
                     Console.Clear();
-                    Explore.HandleBlackForestExplore(player);
+                    ExploreSystem.HandleBlackForestExplore(player);
                     break;
 
                 case 2:
                     Console.Clear();
-                    Explore.HandleSwampExplore(player);
+                    ExploreSystem.HandleSwampExplore(player);
                     break;
 
                 case 3:
                     Console.Clear();
-                    Explore.HandleMountainsExplore(player);
+                    ExploreSystem.HandleMountainsExplore(player);
                     break;
 
                 case 0:

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Console_Based_RPG.Characters;
-using Console_Based_RPG.Items;
+using ConsoleBaseRPG_.Net8.Entity;
 
 namespace xUnit_TestProject
 {

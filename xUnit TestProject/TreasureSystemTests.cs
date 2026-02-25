@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using ConsoleBaseRPG_.Net8.Entity;
 
 namespace xUnit_TestProject
 {
@@ -31,10 +32,11 @@ namespace xUnit_TestProject
             var allItems = GenerateAllItems();
             var mock = new Mock<Random>();
             mock.Setup(q => q.Next(0, 100)).Returns(30);
-
+            var ts = new TreasureSystem(mock.Object);
+            
             //Act
-            var result = TreasureSystem.GenerateTreasure(allItems, player);
-
+            var result = ts.GenerateTreasure(allItems, player);
+            
             //Assert
             Assert.Empty(result);
         }
@@ -46,10 +48,13 @@ namespace xUnit_TestProject
             Player player = new Player("Test Player");
             var allItems = GenerateAllItems();
             var mock = new Mock<Random>();
-            mock.Setup(q => q.Next(0, 100)).Returns(70);
+            mock.Setup(q => q.Next(0, 100)).Returns(79);
+            mock.Setup(q => q.Next(1, 4)).Returns(2);
+            mock.Setup(r => r.Next(It.IsAny<int>())).Returns(0);   // всички индекси → първия елемент
 
             //Act
-            var result = TreasureSystem.GenerateTreasure(allItems, player);
+            var ts = new TreasureSystem(mock.Object);
+            var result = ts.GenerateTreasure(allItems, player);
 
             //Assert
             Assert.NotEmpty(result);
