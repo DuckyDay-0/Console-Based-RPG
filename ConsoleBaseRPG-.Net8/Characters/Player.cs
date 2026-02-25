@@ -1,5 +1,5 @@
 ﻿using Console_Based_RPG.Core;
-using Console_Based_RPG.Items;
+using ConsoleBaseRPG_.Net8.Entity;
 using ConsoleBaseRPG_.Net8.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace Console_Based_RPG.Characters
 {
     internal class Player : Character
     {
-        public Inventory Inventory { get; } = new Inventory();          
+        public InventorySystem Inventory { get; } = new InventorySystem();          
 
         public Player(string name)
             : base(100, 0, 5, 100) { }

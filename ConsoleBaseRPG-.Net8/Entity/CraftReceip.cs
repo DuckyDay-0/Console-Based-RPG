@@ -1,11 +1,10 @@
-﻿using Console_Based_RPG.Items;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Based_RPG.Core
+namespace ConsoleBaseRPG_.Net8.Entity
 {
     internal class CraftReceip
     {

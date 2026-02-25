@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Moq;
 using Console_Based_RPG.Core;
 using Console_Based_RPG.Characters;
+using ConsoleBaseRPG_.Net8.Entity;
 
 namespace xUnit_TestProject
 {

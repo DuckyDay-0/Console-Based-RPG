@@ -3,6 +3,7 @@ using Console_Based_RPG.Items;
 using Console_Based_RPG.UI;
 using ConsoleBaseRPG_.Net8;
 using ConsoleBaseRPG_.Net8.Core;
+using ConsoleBaseRPG_.Net8.Entity;
 using ConsoleBaseRPG_.Net8.UI;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Console_Based_RPG.Core
 {
-    internal class Explore
+    internal class ExploreSystem
     {
 
         public static void HandleBlackForestExplore(Player player)

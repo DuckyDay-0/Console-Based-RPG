@@ -7,7 +7,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Based_RPG.Items
+namespace ConsoleBaseRPG_.Net8.Entity
 {
     internal class Armor : Item, IInteractable
     {

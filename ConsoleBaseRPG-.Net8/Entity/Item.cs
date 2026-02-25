@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Based_RPG.Items
+namespace ConsoleBaseRPG_.Net8.Entity
 {
     public abstract class Item
     {

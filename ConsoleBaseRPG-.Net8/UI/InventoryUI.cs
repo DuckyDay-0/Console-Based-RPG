@@ -1,6 +1,6 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.Core;
-using Console_Based_RPG.Items;
+using ConsoleBaseRPG_.Net8.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,7 +67,7 @@ namespace Console_Based_RPG.UI
                 Console.ReadKey();
                 return;
             }
-            int choice = Inventory.SelectItem(player);
+            int choice = InventorySystem.SelectItem(player);
 
             if (choice == 0)
             {
@@ -93,7 +93,7 @@ namespace Console_Based_RPG.UI
                 return;
             }
 
-            int choice = Inventory.SelectItem(player);
+            int choice = InventorySystem.SelectItem(player);
 
             if (choice == 0)
             {

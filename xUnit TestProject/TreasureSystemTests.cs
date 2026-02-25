@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using ConsoleBaseRPG_.Net8.Entity;
 
 namespace xUnit_TestProject
 {

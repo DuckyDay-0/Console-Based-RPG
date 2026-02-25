@@ -1,4 +1,4 @@
-﻿using Console_Based_RPG.Core;
+﻿using ConsoleBaseRPG_.Net8.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,9 @@ namespace Console_Based_RPG.Items
 {
     internal class CraftReceips
     {
+
+
+
         public static CraftReceip ChargedSwampCore = new CraftReceip
         (
             "Charged Swamp Core",
