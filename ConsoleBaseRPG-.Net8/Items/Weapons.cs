@@ -12,10 +12,12 @@ namespace Console_Based_RPG.Items
         public static Dictionary<string, Weapon> weapons = 
             new Dictionary<string, Weapon>
             {
-                {"sword", new Weapon("Iron Sword", 20)},
+                {"bronze sword", new Weapon("Iron Sword", 25)},
                 {"axe", new Weapon("Battle Axe", 17)},
                 {"club", new Weapon("Ball Club", 15)},
-                {"dagger", new Weapon("Dagger", 18)}
+                {"dagger", new Weapon("Dagger", 18)},
+                {"iron sword", new Weapon("Iron Sword", 35)},
+                {"bronze mace", new Weapon("Bronze Mace", 38)}
             };
 
         public static Weapon Get(string id)
