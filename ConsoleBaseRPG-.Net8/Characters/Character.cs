@@ -77,9 +77,12 @@ namespace Console_Based_RPG.Characters
         public void IncreaseStrenght(int strenghtBonus)
         {
             bonusStrenght += strenghtBonus;
+            if (strenghtBonus < 0)
+                return;
+
             if (TotalStrenght > 100)
             {
-                bonusStrenght = 100;
+                baseStrenght = 100 - bonusStrenght;
             }
         }
 

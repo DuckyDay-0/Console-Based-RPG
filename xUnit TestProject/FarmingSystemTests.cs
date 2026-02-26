@@ -15,7 +15,7 @@ namespace xUnit_TestProject
     {
        
         [Fact]
-        public void FarmNoItems_ShouldReturnFalseIfTheRandomAmountIsZero()
+        public void Farm_FarmNoItems_ShouldReturnFalseIfTheRandomAmountIsZero()
         {
             //Arrange
             var mock = new Mock<Random>();
@@ -37,7 +37,7 @@ namespace xUnit_TestProject
         }
 
         [Fact]
-        public void GetItems_GetItemsIfTheRandomAmountIsMoreThanZero()
+        public void Farm_GetItems_GetItemsIfTheRandomAmountIsMoreThanZero()
         {
             //Arrange
             Player player = new Player("Test Player");
@@ -57,7 +57,7 @@ namespace xUnit_TestProject
         }
 
         [Fact]
-        public void WontGetFarmMaterials_IfStrenghtIsLessThanStrenghtCostReturnFalse()
+        public void Farm_WontGetFarmMaterials_IfStrenghtIsLessThanStrenghtCostReturnFalse()
         {
             //Arrange
             Player player = new Player("Test Player");

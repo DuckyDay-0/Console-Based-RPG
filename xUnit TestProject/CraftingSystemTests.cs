@@ -13,7 +13,7 @@ namespace xUnit_TestProject
     public class CraftingSystemTests
     {
         [Fact]
-        public void AncientAlloyPlate_ShouldCraftAncientAlloyPlate()
+        public void Craft_AncientAlloyPlate_ShouldCraftAncientAlloyPlate()
         {
             Player player = new Player("TestPlayer");
 
@@ -38,7 +38,7 @@ namespace xUnit_TestProject
         }
 
         [Fact]
-        public void LivingVineCore_ShouldCraftLivingVineCore()
+        public void Craft_LivingVineCore_ShouldCraftLivingVineCore()
         {
             Player player = new Player("Test Player");
 
@@ -61,7 +61,7 @@ namespace xUnit_TestProject
         }
 
         [Fact]
-        public void ChargedSwampCore_ShouldAddChargedSwampCore()
+        public void Craft_ChargedSwampCore_ShouldAddChargedSwampCore()
         { 
             Player player = new Player("Test Player");
 
@@ -86,7 +86,7 @@ namespace xUnit_TestProject
         }
 
         [Fact]
-        public void LightHealthPotion_ShouldCraftLightHealthPotion()
+        public void Craft_LightHealthPotion_ShouldCraftLightHealthPotion()
         {
             Player player = new Player("Test Player");
 

@@ -162,6 +162,19 @@ namespace Console_Based_RPG.Core
                         Console.WriteLine($"{i + 1}: {items[i].Name} : {stackedMaterial}");
                     }
                 }
+                else if (items[i] is StrenghtPotion strenghtPotion)
+                {
+                    if (strenghtPotion.Quantity < 1)
+                    {
+                        var invStrenghtPotion = items.OfType<StrenghtPotion>().FirstOrDefault(n => n.Name == items[i].Name);
+                        items.Remove(invStrenghtPotion);
+                    }
+                    else
+                    {
+                        stackedMaterial = strenghtPotion.Quantity;
+                        Console.WriteLine($"{i + 1}: {items[i].Name} : {stackedMaterial}");
+                    }
+                }
                 else
                 {
                     Console.WriteLine($"{i + 1}: {items[i].Name} {equippedString}");

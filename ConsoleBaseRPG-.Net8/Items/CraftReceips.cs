@@ -1,4 +1,5 @@
 ﻿using ConsoleBaseRPG_.Net8.Entity;
+using ConsoleBaseRPG_.Net8.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -143,7 +144,7 @@ namespace Console_Based_RPG.Items
         public static CraftReceip StrenghtPotion = new CraftReceip
         (
             "Strenght Potion",
-            () => HealthPotions.healthPotions["strenght potion"],
+            () => StrenghtPotions.strenghtPotions["light strenght potion"],
             new Dictionary<string, int>
             {
                {"Sturling Core", 2},

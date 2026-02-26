@@ -51,6 +51,17 @@ namespace Console_Based_RPG.Characters
             return true;
         }
 
+        public bool UseStrenghtPotion(StrenghtPotion strenghtPotion, Player player)
+        {
+            IncreaseStrenght(strenghtPotion.PotionStrenghtBonus);
+            strenghtPotion.RemoveQuantity(1);
+            if (strenghtPotion.Quantity < 1)
+            {
+                player.Inventory.RemoveItemsFromInventory(strenghtPotion, player, out string message);
+            }
+            return true;
+        }
+
         public bool Heal(HealthPotion healthPotion)
         {         
             IncreaseHealth(healthPotion.PotionHealthBonus);
