@@ -15,7 +15,7 @@ namespace Console_Based_RPG.Items
             {"pine wood", new Material("Pine Wood", "Material")},
             {"copper", new Material("Copper", "Material")},
             {"mudy scrap", new Material("Mudy Scrap", "Material")},
-            {"charged swamped core", new Material("Charged Swamp Core", "Swamp Access Key") },
+            {"charged swamp core", new Material("Charged Swamp Core", "Swamp Access Key") },
             {"living vine core", new Material("Living Vine Core", "Craftable Material")},
             {"ancient alloy plate", new Material("Ancient Alloy Plate", "Craftable Material")},
             {"muddy scrap", new Material("Muddy Scrap", "Material")},

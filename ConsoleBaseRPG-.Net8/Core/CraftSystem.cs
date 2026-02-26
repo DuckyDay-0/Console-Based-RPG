@@ -13,6 +13,19 @@ namespace Console_Based_RPG.Core
     internal class CraftSystem
     {
 
+        //public static bool CraftArmor(Player player, int choice, out string message)
+        //{
+        //    CraftReceip craftReceip= null;
+        //    message = string.Empty;
+
+        //    switch (choice)
+        //    {
+        //        case 1:
+                      
+        //            break;
+        //    }
+        //}
+
         public static bool Craft(Player player, int choice, out string message)
         {
             CraftReceip craftReceip = null;

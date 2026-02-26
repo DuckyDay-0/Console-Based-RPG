@@ -27,8 +27,9 @@ namespace Console_Based_RPG.Core
                 string rndNotEnoughStrenghtMsg = MessageHelper.MsgRand(GameMessages.NotEnoughStrenghtMsgs);
                 message = rndNotEnoughStrenghtMsg;
                 player.ReduceHealth(strenghtCost / 2);
-                message = $"Since you had no energy {strenghtCost / 2} was taken from your health.";
-                message = "Click any button to continue.";
+                message = $"Since you had no energy {strenghtCost / 2} was taken from your health.\n" +
+                $"Click any button to continue.";
+
                 return false;
             }
 
@@ -39,7 +40,8 @@ namespace Console_Based_RPG.Core
             int amount = _random.Next(0, 5);
             if (amount == 0)
             {
-                message = "And, you get nothing this time...";
+                message = "And, you get nothing this time...\n" +
+                "Press any button to continue";
                 return false;
             }
 
@@ -52,8 +54,8 @@ namespace Console_Based_RPG.Core
 
             player.AddOneItem(farmedMaterial);
             string rndMaterialMsg = MessageHelper.MsgRand(GameMessages.FarmingMaterialSuccessful);
-            message = $"{rndMaterialMsg}\n{amount} {material.Name} has been added to your inventory.";
-            message = "Press any button to continue.";
+            message = $"{rndMaterialMsg}\n{amount} {material.Name} has been added to your inventory.\n" + 
+            "Press any button to continue.";
 
             return true;
         }
