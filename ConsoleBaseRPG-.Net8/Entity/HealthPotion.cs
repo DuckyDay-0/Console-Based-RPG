@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleBaseRPG_.Net8.Entity
 {
-    internal class HealthPotion : Item, IInteractable
+    internal class HealthPotion : Item, IStackable
     {
-        public int Quantity { get; private set; }
+        public int Quantity { get; set; }
         public int PotionHealthBonus { get; }
         public HealthPotion(string name, int healthBonus, int quantity = 1)
             :base (name, "Usable Health Potion", false)
@@ -33,7 +33,7 @@ namespace ConsoleBaseRPG_.Net8.Entity
             }
         }
 
-        public bool Equip(Player player, out string message)
+        public bool Use(Player player, out string message)
         {
             message = string.Empty;
             player.Heal(this);           

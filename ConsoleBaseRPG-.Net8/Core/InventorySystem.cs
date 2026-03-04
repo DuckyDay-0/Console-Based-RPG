@@ -1,6 +1,7 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.UI;
 using ConsoleBaseRPG_.Net8.Entity;
+using ConsoleBaseRPG_.Net8.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,33 +21,19 @@ namespace Console_Based_RPG.Core
         }
 
         public void AddItemToInventory(Item item)
-        {
-            if (item is Material newMaterial)
+        {           
+            if (item is IStackable stackable)
             {
                 var existing = items
-                    .OfType<Material>()
-                    .FirstOrDefault(m => m.Name == newMaterial.Name);
+                    .OfType<IStackable>()
+                    .FirstOrDefault(m => m.Name == stackable.Name);
 
                 if (existing != null)
                 {
-                    existing.AddQuantity(newMaterial.Quantity);
+                    existing.AddQuantity(stackable.Quantity);
                     return;
                 }
             }
-            else if (item is HealthPotion newHealthPotion)
-            {
-                var existing = items
-                    .OfType<HealthPotion>()
-                    .FirstOrDefault(m => m.Name == newHealthPotion.Name);
-
-                if (existing != null)
-                {
-                    existing.AddQuantity(newHealthPotion.Quantity);
-                    return;
-                }
-            }
-
-
             items.Add(item);
         }
 
@@ -54,7 +41,7 @@ namespace Console_Based_RPG.Core
         public void RemoveItemsFromInventory(Item item, Player player, out string message)
         {
             message = string.Empty;
-            if (item is Material material)
+            if (item is IStackable material)
             {
                 if (material.Quantity > 1)
                 {
@@ -93,7 +80,7 @@ namespace Console_Based_RPG.Core
 
         public void RemoveItem(string name, int amount)
         {
-            var material = items.OfType<Material>().FirstOrDefault(m => m.Name == name);
+            var material = items.OfType<IStackable>().FirstOrDefault(m => m.Name == name);
             
 
             if (material != null)
@@ -101,7 +88,7 @@ namespace Console_Based_RPG.Core
                 material.RemoveQuantity(amount);
                 if (material.Quantity < 1)
                 {
-                    items.Remove(material);
+                    items.Remove((Item)material);
                 }
                 return;
 

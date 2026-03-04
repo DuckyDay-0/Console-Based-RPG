@@ -1,5 +1,6 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.Core;
+using Console_Based_RPG.UI;
 using ConsoleBaseRPG_.Net8.Entity;
 using ConsoleBaseRPG_.Net8.UI;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Based_RPG.UI
+namespace ConsoleBaseRPG_.Net8.UI.CoreSystemUI
 {
     internal class BattleUI
     {

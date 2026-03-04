@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleBaseRPG_.Net8.UI
+namespace ConsoleBaseRPG_.Net8.UI.CoreSystemUI
 {
     internal class FarmingSystemUI
     {

@@ -1,5 +1,4 @@
 ﻿using Console_Based_RPG.Characters;
-using Console_Based_RPG.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace ConsoleBaseRPG_.Net8.Interfaces
 {
-    internal interface IInteractable
+    internal interface IStackable
     {
         string Name { get; }
-
-        public bool Equip(Player player, out string message);
+        int Quantity { get; set; }
+        public void AddQuantity(int quantity);
+        public void RemoveQuantity(int quantity);
+        public bool Use(Player player, out string message);
     }
 }

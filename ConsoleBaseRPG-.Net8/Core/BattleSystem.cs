@@ -1,6 +1,7 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.Items;
 using Console_Based_RPG.UI;
+using ConsoleBaseRPG_.Net8.UI.CoreSystemUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Console_Based_RPG.Core
             bool turn = playerStarts;
             bool battleContinues = true;
             while (player.CurrentHealth > 0 && enemy.CurrentHealth > 0 && battleContinues)
-            {               
+            {                  
                 if (turn)
                 {
                    battleContinues =  BattleUI.HandlePlayerTurnUI(player, enemy);
@@ -26,6 +27,7 @@ namespace Console_Based_RPG.Core
                 {
                     EnemyTurn(player, enemy);
                 }
+
                 turn = !turn;
             }
         }

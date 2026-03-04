@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Console_Based_RPG.Characters;
+using ConsoleBaseRPG_.Net8.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -7,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleBaseRPG_.Net8.Entity
 {
-    internal class Material : Item
+    internal class Material : Item, IStackable
     {
         public int Quantity { get; private set; }
+        int IStackable.Quantity { get => Quantity; set => Quantity = value; }
+
         public Material(string name, string descripton, int quantity = 1) 
             : base(name, descripton, false)
         {
@@ -28,6 +32,11 @@ namespace ConsoleBaseRPG_.Net8.Entity
             {
                 Quantity = 0;
             }
+        }
+
+        public bool Use(Player player, out string message)
+        {
+            throw new NotImplementedException();
         }
     }
 

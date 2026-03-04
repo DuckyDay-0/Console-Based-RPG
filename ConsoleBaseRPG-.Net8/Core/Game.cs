@@ -1,6 +1,7 @@
 ﻿using Console_Based_RPG.Characters;
 using Console_Based_RPG.UI;
 using ConsoleBaseRPG_.Net8.Entity;
+using ConsoleBaseRPG_.Net8.UI.CoreSystemUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;

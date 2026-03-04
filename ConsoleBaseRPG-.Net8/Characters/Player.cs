@@ -85,6 +85,11 @@ namespace Console_Based_RPG.Characters
                 interactable.Equip(this, out message);
                 return true;
             }
+            else if (item is IStackable stackable)
+            { 
+                stackable.Use(this, out message);
+                return true;
+            }
             else
             {
                 message = "You can't equip this item";

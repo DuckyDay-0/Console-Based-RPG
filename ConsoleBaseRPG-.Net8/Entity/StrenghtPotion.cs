@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 
 namespace ConsoleBaseRPG_.Net8.Entity
 {
-    internal class StrenghtPotion :Item, IInteractable
+    internal class StrenghtPotion :Item, IStackable
     {
-        public int Quantity { get; private set; }
+        public int Quantity { get; set; }
         public int PotionStrenghtBonus { get; }
         public StrenghtPotion(string name, int strenghtBonus,  int quantity = 1) 
             : base(name, "Usable Strenght Potion", false)
         {
             Quantity = quantity;
             PotionStrenghtBonus = strenghtBonus;
+        }
+
+        public void AddQuantity(int quantity)
+        { 
+            Quantity += quantity;
         }
 
         public void RemoveQuantity(int quantity)
@@ -29,7 +34,7 @@ namespace ConsoleBaseRPG_.Net8.Entity
 
         }
 
-        public bool Equip(Player player, out string message)
+        public bool Use(Player player, out string message)
         {
             message = string.Empty;
             player.UseStrenghtPotion(this, player);

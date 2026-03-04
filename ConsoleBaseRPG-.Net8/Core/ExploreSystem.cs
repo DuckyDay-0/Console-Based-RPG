@@ -5,6 +5,7 @@ using ConsoleBaseRPG_.Net8;
 using ConsoleBaseRPG_.Net8.Core;
 using ConsoleBaseRPG_.Net8.Entity;
 using ConsoleBaseRPG_.Net8.UI;
+using ConsoleBaseRPG_.Net8.UI.CoreSystemUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,9 @@ namespace Console_Based_RPG.Core
                     {
                         Item trollArmor = Armors.armors["troll hide armor"];
                         player.AddOneItem(trollArmor);
+                        Console.WriteLine("Looks like the troll is gone as for the moment...");
+                        Console.WriteLine("You can take whatever you need!");
+                        Console.ReadKey();  
                         break;
                     }
 
